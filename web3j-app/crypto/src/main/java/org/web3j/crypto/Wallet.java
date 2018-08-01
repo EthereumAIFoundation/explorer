@@ -23,16 +23,16 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.web3j.crypto.SecureRandomUtils.secureRandom;
 
 /**
- * <p>Ethereum wallet file management. For reference, refer to
- * <a href="https://github.com/ethereum/wiki/wiki/Web3-Secret-Storage-Definition">
+ * <p>EthereumAI wallet file management. For reference, refer to
+ * <a href="https://github.com/ethereumai/wiki/wiki/Web3-Secret-Storage-Definition">
  * Web3 Secret Storage Definition</a> or the
- * <a href="https://github.com/ethereum/go-ethereum/blob/master/accounts/key_store_passphrase.go">
- * Go Ethereum client implementation</a>.</p>
+ * <a href="https://github.com/ethereumai/go-ethereumai/blob/master/accounts/key_store_passphrase.go">
+ * Go EthereumAI client implementation</a>.</p>
  *
  * <p><strong>Note:</strong> the Bouncy Castle Scrypt implementation
  * {@link SCrypt}, fails to comply with the following
- * Ethereum reference
- * <a href="https://github.com/ethereum/wiki/wiki/Web3-Secret-Storage-Definition#scrypt">
+ * EthereumAI reference
+ * <a href="https://github.com/ethereumai/wiki/wiki/Web3-Secret-Storage-Definition#scrypt">
  * Scrypt test vector</a>:</p>
  *
  * <pre>

@@ -1,5 +1,5 @@
 
-var { ajax, ajaxSplitAction, getEthereumaiNetHost } = require("@/assets/utility");
+var { ajax, ajaxSplitAction, getEthereumAIaiNetHost } = require("@/assets/utility");
 
 module.exports = {
     // get api/account?
@@ -38,7 +38,7 @@ module.exports = {
         }
     },
     getTransactionByContract(t, netname, done, fail) {
-        var host =  getEthereumaiNetHost(netname)
+        var host =  getEthereumAIaiNetHost(netname)
         ajax('POST ' + host + '/user/getTransactionByContract', t, done, fail)
     },
 

@@ -15,11 +15,11 @@ import org.web3j.utils.Convert;
 import org.web3j.utils.Numeric;
 
 /**
- * Class for performing Ether transactions on the Ethereum blockchain.
+ * Class for performing EtherAI transactions on the EthereumAI blockchain.
  */
 public class Transfer extends ManagedTransaction {
 
-    // This is the cost to send Ether between parties
+    // This is the cost to send EtherAI between parties
     public static final BigInteger GAS_LIMIT = BigInteger.valueOf(21000);
 
     public Transfer(Web3j web3j, TransactionManager transactionManager) {

@@ -3,7 +3,7 @@ package org.web3j.protocol.core;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * https://github.com/ethereum/wiki/wiki/JSON-RPC#the-default-block-parameter
+ * https://github.com/ethereumai/wiki/wiki/JSON-RPC#the-default-block-parameter
  */
 public enum DefaultBlockParameterName implements DefaultBlockParameter {
     EARLIEST("earliest"),

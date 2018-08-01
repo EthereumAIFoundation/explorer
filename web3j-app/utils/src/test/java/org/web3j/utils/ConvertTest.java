@@ -24,13 +24,13 @@ public class ConvertTest {
                 is(new BigDecimal("21")));
         assertThat(Convert.fromWei("21000000000000", Convert.Unit.FINNEY),
                 is(new BigDecimal("0.021")));
-        assertThat(Convert.fromWei("21000000000000", Convert.Unit.ETHER),
+        assertThat(Convert.fromWei("21000000000000", Convert.Unit.ETHERAI),
                 is(new BigDecimal("0.000021")));
-        assertThat(Convert.fromWei("21000000000000", Convert.Unit.KETHER),
+        assertThat(Convert.fromWei("21000000000000", Convert.Unit.KETHERAI),
                 is(new BigDecimal("0.000000021")));
-        assertThat(Convert.fromWei("21000000000000", Convert.Unit.METHER),
+        assertThat(Convert.fromWei("21000000000000", Convert.Unit.METHERAI),
                 is(new BigDecimal("0.000000000021")));
-        assertThat(Convert.fromWei("21000000000000", Convert.Unit.GETHER),
+        assertThat(Convert.fromWei("21000000000000", Convert.Unit.GETHERAI),
                 is(new BigDecimal("0.000000000000021")));
     }
 
@@ -43,20 +43,20 @@ public class ConvertTest {
         assertThat(Convert.toWei("21", Convert.Unit.SZABO), is(new BigDecimal("21000000000000")));
         assertThat(Convert.toWei("21", Convert.Unit.FINNEY),
                 is(new BigDecimal("21000000000000000")));
-        assertThat(Convert.toWei("21", Convert.Unit.ETHER),
+        assertThat(Convert.toWei("21", Convert.Unit.ETHERAI),
                 is(new BigDecimal("21000000000000000000")));
-        assertThat(Convert.toWei("21", Convert.Unit.KETHER),
+        assertThat(Convert.toWei("21", Convert.Unit.KETHERAI),
                 is(new BigDecimal("21000000000000000000000")));
-        assertThat(Convert.toWei("21", Convert.Unit.METHER),
+        assertThat(Convert.toWei("21", Convert.Unit.METHERAI),
                 is(new BigDecimal("21000000000000000000000000")));
-        assertThat(Convert.toWei("21", Convert.Unit.GETHER),
+        assertThat(Convert.toWei("21", Convert.Unit.GETHERAI),
                 is(new BigDecimal("21000000000000000000000000000")));
     }
 
     @Test
     public void testUnit() {
-        assertThat(Convert.Unit.fromString("ether"), is(Convert.Unit.ETHER));
-        assertThat(Convert.Unit.fromString("ETHER"), is(Convert.Unit.ETHER));
+        assertThat(Convert.Unit.fromString("etherai"), is(Convert.Unit.ETHERAI));
+        assertThat(Convert.Unit.fromString("ETHERAI"), is(Convert.Unit.ETHERAI));
         assertThat(Convert.Unit.fromString("wei"), is(Convert.Unit.WEI));
     }
 }

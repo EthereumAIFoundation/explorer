@@ -45,7 +45,7 @@ public class WalletSendFunds extends WalletManager {
             exitError("Invalid destination address specified");
         }
 
-        Web3j web3j = getEthereumClient();
+        Web3j web3j = getEthereumAIClient();
 
         BigDecimal amountToTransfer = getAmountToTransfer();
         Convert.Unit transferUnit = getTransferUnit();
@@ -77,12 +77,12 @@ public class WalletSendFunds extends WalletManager {
     }
 
     private Convert.Unit getTransferUnit() {
-        String unit = console.readLine("Please specify the unit (ether, wei, ...) [ether]: ")
+        String unit = console.readLine("Please specify the unit (etherai, wei, ...) [etherai]: ")
                 .trim();
 
         Convert.Unit transferUnit;
         if (unit.equals("")) {
-            transferUnit = Convert.Unit.ETHER;
+            transferUnit = Convert.Unit.ETHERAI;
         } else {
             transferUnit = Convert.Unit.fromString(unit.toLowerCase());
         }
@@ -126,9 +126,9 @@ public class WalletSendFunds extends WalletManager {
         throw new RuntimeException("Application exit failure");
     }
 
-    private Web3j getEthereumClient() {
+    private Web3j getEthereumAIClient() {
         String clientAddress = console.readLine(
-                "Please confirm address of running Ethereum client you wish to send "
+                "Please confirm address of running EthereumAI client you wish to send "
                 + "the transfer request to [" + HttpService.DEFAULT_URL + "]: ")
                 .trim();
 

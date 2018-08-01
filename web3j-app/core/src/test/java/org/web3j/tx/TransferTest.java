@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import org.web3j.crypto.SampleKeys;
 import org.web3j.protocol.core.Request;
-import org.web3j.protocol.core.methods.response.EthGasPrice;
+import org.web3j.protocol.core.methods.response.EaiGasPrice;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.utils.Convert;
 
@@ -31,14 +31,14 @@ public class TransferTest extends ManagedTransactionTester {
     @Test
     public void testSendFunds() throws Exception {
         assertThat(Transfer.sendFunds(web3j, SampleKeys.CREDENTIALS, ADDRESS,
-                BigDecimal.TEN, Convert.Unit.ETHER).send(),
+                BigDecimal.TEN, Convert.Unit.ETHERAI).send(),
                 is(transactionReceipt));
     }
 
     @Test
     public void testSendFundsAsync() throws  Exception {
         assertThat(Transfer.sendFunds(web3j, SampleKeys.CREDENTIALS, ADDRESS,
-                BigDecimal.TEN, Convert.Unit.ETHER).send(),
+                BigDecimal.TEN, Convert.Unit.ETHERAI).send(),
                 is(transactionReceipt));
     }
 
@@ -55,12 +55,12 @@ public class TransferTest extends ManagedTransactionTester {
         transactionReceipt.setStatus("0x1");
         prepareTransaction(transactionReceipt);
 
-        EthGasPrice ethGasPrice = new EthGasPrice();
-        ethGasPrice.setResult("0x1");
+        EaiGasPrice eaiGasPrice = new EaiGasPrice();
+        eaiGasPrice.setResult("0x1");
 
-        Request<?, EthGasPrice> gasPriceRequest = mock(Request.class);
-        when(gasPriceRequest.send()).thenReturn(ethGasPrice);
-        when(web3j.ethGasPrice()).thenReturn((Request) gasPriceRequest);
+        Request<?, EaiGasPrice> gasPriceRequest = mock(Request.class);
+        when(gasPriceRequest.send()).thenReturn(eaiGasPrice);
+        when(web3j.eaiGasPrice()).thenReturn((Request) gasPriceRequest);
 
         return transactionReceipt;
     }

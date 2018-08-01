@@ -89,7 +89,7 @@ public class Keys {
 
     /**
      * Checksum address encoding as per
-     * <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md">EIP-55</a>.
+     * <a href="https://github.com/ethereumai/EIPs/blob/master/EIPS/eip-55.md">EIP-55</a>.
      *
      * @param address a valid hex encoded address
      * @return hex encoded checksum address

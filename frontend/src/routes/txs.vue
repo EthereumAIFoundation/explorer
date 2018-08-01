@@ -25,7 +25,7 @@
     }
 </style>
 <template>
-    <!-- https://etherscan.io/txs -->
+    <!-- https://etheraiscan.io/txs -->
     <div class=vue-txs>
         <vue-bread v-bind:arr=breadcrumb title=Transactions></vue-bread>
 
@@ -83,7 +83,7 @@
                     <td class=tdxxxwddd>
                         <router-link v-bind:to='fragApi + "/address/" + o.to.hash'>{{ o.to.hash }}</router-link>
                     </td>
-                    <td class=text-right>{{ easyNumber(o.value/1000000000000000000) }} Eth</td>
+                    <td class=text-right>{{ easyNumber(o.value/1000000000000000000) }} Eai</td>
                     <td class=text-right>{{ toWei(o.txFee) }}</td>
                 </tr>
             </table>

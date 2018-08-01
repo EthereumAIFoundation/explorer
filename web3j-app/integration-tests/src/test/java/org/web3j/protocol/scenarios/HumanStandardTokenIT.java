@@ -24,7 +24,7 @@ import org.web3j.crypto.RawTransaction;
 import org.web3j.crypto.TransactionEncoder;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.request.Transaction;
-import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.core.methods.response.EaiSendTransaction;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.utils.Numeric;
@@ -37,7 +37,7 @@ import static org.junit.Assert.assertThat;
 
 /**
  * Integration test demonstrating integration with
- * <a href="https://github.com/ethereum/EIPs/issues/20">EIP-20</a>. Solidity implementation is
+ * <a href="https://github.com/ethereumai/EIPs/issues/20">EIP-20</a>. Solidity implementation is
  * taken from <a href="https://github.com/ConsenSys/Tokens">ConsenSys Tokens</a>.
  */
 public class HumanStandardTokenIT extends Scenario {
@@ -167,7 +167,7 @@ public class HumanStandardTokenIT extends Scenario {
         byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, credentials);
         String hexValue = Numeric.toHexString(signedMessage);
 
-        EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue)
+        EaiSendTransaction transactionResponse = web3j.eaiSendRawTransaction(hexValue)
                 .sendAsync().get();
 
         return transactionResponse.getTransactionHash();
@@ -288,7 +288,7 @@ public class HumanStandardTokenIT extends Scenario {
         byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, credentials);
         String hexValue = Numeric.toHexString(signedMessage);
 
-        EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue)
+        EaiSendTransaction transactionResponse = web3j.eaiSendRawTransaction(hexValue)
                 .sendAsync().get();
 
         return transactionResponse.getTransactionHash();
@@ -298,8 +298,8 @@ public class HumanStandardTokenIT extends Scenario {
             Function function, String contractAddress) throws Exception {
         String encodedFunction = FunctionEncoder.encode(function);
 
-        org.web3j.protocol.core.methods.response.EthCall response = web3j.ethCall(
-                Transaction.createEthCallTransaction(
+        org.web3j.protocol.core.methods.response.EaiCall response = web3j.eaiCall(
+                Transaction.createEaiCallTransaction(
                         ALICE.getAddress(), contractAddress, encodedFunction),
                 DefaultBlockParameterName.LATEST)
                 .sendAsync().get();

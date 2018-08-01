@@ -7,8 +7,8 @@ import java.util.Optional;
 
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.Request;
-import org.web3j.protocol.core.methods.response.EthFilter;
-import org.web3j.protocol.core.methods.response.EthLog;
+import org.web3j.protocol.core.methods.response.EaiFilter;
+import org.web3j.protocol.core.methods.response.EaiLog;
 
 /**
  * Handler for working with transaction filter requests.
@@ -21,15 +21,15 @@ public class PendingTransactionFilter extends Filter<String> {
     }
 
     @Override
-    EthFilter sendRequest() throws IOException {
-        return web3j.ethNewPendingTransactionFilter().send();
+    EaiFilter sendRequest() throws IOException {
+        return web3j.eaiNewPendingTransactionFilter().send();
     }
 
     @Override
-    void process(List<EthLog.LogResult> logResults) {
-        for (EthLog.LogResult logResult : logResults) {
-            if (logResult instanceof EthLog.Hash) {
-                String transactionHash = ((EthLog.Hash) logResult).get();
+    void process(List<EaiLog.LogResult> logResults) {
+        for (EaiLog.LogResult logResult : logResults) {
+            if (logResult instanceof EaiLog.Hash) {
+                String transactionHash = ((EaiLog.Hash) logResult).get();
                 callback.onEvent(transactionHash);
             } else {
                 throw new FilterException(
@@ -47,7 +47,7 @@ public class PendingTransactionFilter extends Filter<String> {
      * Optional.empty()
      */
     @Override
-    protected Optional<Request<?, EthLog>> getFilterLogs(BigInteger filterId) {
+    protected Optional<Request<?, EaiLog>> getFilterLogs(BigInteger filterId) {
         return Optional.empty();
     }
 }

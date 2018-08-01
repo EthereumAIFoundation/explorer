@@ -38,7 +38,7 @@ public class RawTransaction {
         return new RawTransaction(nonce, gasPrice, gasLimit, "", value, init);
     }
 
-    public static RawTransaction createEtherTransaction(
+    public static RawTransaction createEtherAITransaction(
             BigInteger nonce, BigInteger gasPrice, BigInteger gasLimit, String to,
             BigInteger value) {
 

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.core.methods.response.EaiSendTransaction;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.exceptions.TransactionException;
 import org.web3j.tx.response.PollingTransactionReceiptProcessor;
@@ -13,7 +13,7 @@ import org.web3j.tx.response.TransactionReceiptProcessor;
 import static org.web3j.protocol.core.JsonRpc2_0Web3j.DEFAULT_BLOCK_TIME;
 
 /**
- * Transaction manager abstraction for executing transactions with Ethereum client via
+ * Transaction manager abstraction for executing transactions with EthereumAI client via
  * various mechanisms.
  */
 public abstract class TransactionManager {
@@ -46,12 +46,12 @@ public abstract class TransactionManager {
             String data, BigInteger value)
             throws IOException, TransactionException {
 
-        EthSendTransaction ethSendTransaction = sendTransaction(
+        EaiSendTransaction eaiSendTransaction = sendTransaction(
                 gasPrice, gasLimit, to, data, value);
-        return processResponse(ethSendTransaction);
+        return processResponse(eaiSendTransaction);
     }
 
-    public abstract EthSendTransaction sendTransaction(
+    public abstract EaiSendTransaction sendTransaction(
             BigInteger gasPrice, BigInteger gasLimit, String to,
             String data, BigInteger value)
             throws IOException;
@@ -60,7 +60,7 @@ public abstract class TransactionManager {
         return fromAddress;
     }
 
-    private TransactionReceipt processResponse(EthSendTransaction transactionResponse)
+    private TransactionReceipt processResponse(EaiSendTransaction transactionResponse)
             throws IOException, TransactionException {
         if (transactionResponse.hasError()) {
             throw new RuntimeException("Error processing transaction request: "

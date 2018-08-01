@@ -4,9 +4,9 @@ Smart Contracts
 Developers have the choice of three languages for writing smart contracts:
 
 `Solidity <https://Solidity.readthedocs.io/>`_
-  The flagship language of Ethereum, and most popular language for smart contracts.
+  The flagship language of EthereumAI, and most popular language for smart contracts.
 
-`Serpent <https://github.com/ethereum/wiki/wiki/Serpent>`_
+`Serpent <https://github.com/ethereumai/wiki/wiki/Serpent>`_
   A Python like language for writing smart contracts.
 
 LISP Like Language (LLL)
@@ -16,7 +16,7 @@ LISP Like Language (LLL)
   is a good place to start.
 
 
-In order to deploy a smart contract onto the Ethereum blockchain, it must first be compiled into
+In order to deploy a smart contract onto the EthereumAI blockchain, it must first be compiled into
 a bytecode format, then it can be sent as part of a transaction. web3j can do all of this for you
 with its :ref:`smart-contract-wrappers`. To understand what is happening behind the scenes, you
 can refer to the details in :ref:`creation-of-smart-contract`.
@@ -31,12 +31,12 @@ Getting started with Solidity
 An overview of Solidity is beyond the scope of these docs, however, the following resources are a
 good place to start:
 
-- `Contract Tutorial <https://github.com/ethereum/go-ethereum/wiki/Contract-Tutorial>`_ on the Go
-  Ethereum Wiki
+- `Contract Tutorial <https://github.com/ethereumai/go-ethereumai/wiki/Contract-Tutorial>`_ on the Go
+  EthereumAI Wiki
 - `Introduction to Smart Contracts <http://Solidity.readthedocs.io/en/develop/introduction-to-smart-contracts.html>`_
   in the Solidity project documentation
-- `Writing a contract <https://ethereum-homestead.readthedocs.io/en/latest/contracts-and-transactions/contracts.html#writing-a-contract>`_
-  in the Ethereum Homestead Guide
+- `Writing a contract <https://ethereumai-homestead.readthedocs.io/en/latest/contracts-and-transactions/contracts.html#writing-a-contract>`_
+  in the EthereumAI Homestead Guide
 
 .. _compiling-Solidity:
 
@@ -71,16 +71,16 @@ contract and transact with its methods.
 
 
 Alternatively, you can write and compile Solidity code in your browser via the
-`browser-solidity <https://ethereum.github.io/browser-solidity/>`_ project. browser-solidity is
+`browser-solidity <https://ethereumai.github.io/browser-solidity/>`_ project. browser-solidity is
 great for smaller smart contracts, but you may run into issues working with larger contracts.
 
-You can also compile Solidity code via Ethereum clients such as Geth and Parity, using the JSON-RPC
-method `eth_compileSolidity <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_compileSolidity>`_
+You can also compile Solidity code via EthereumAI clients such as Geai and Parity, using the JSON-RPC
+method `eai_compileSolidity <https://github.com/ethereumai/wiki/wiki/JSON-RPC#eai_compileSolidity>`_
 which is also supported in web3j. However, the Solidity compiler must be installed on the client
 for this to work.
 
 There are further options available, please refer to the
-`relevant section <https://ethereum-homestead.readthedocs.io/en/latest/contracts-and-transactions/contracts.html#compiling-a-contract>`_
+`relevant section <https://ethereumai-homestead.readthedocs.io/en/latest/contracts-and-transactions/contracts.html#compiling-a-contract>`_
 in the Homestead documentation.
 
 
@@ -112,12 +112,12 @@ module.
 
 .. _eip:
 
-EIP-20 Ethereum token standard smart contract
+EIP-20 EthereumAI token standard smart contract
 ---------------------------------------------
 
-There an Ethereum standard, `EIP-20 <https://github.com/ethereum/EIPs/issues/20>`_
+There an EthereumAI standard, `EIP-20 <https://github.com/ethereumai/EIPs/issues/20>`_
 which started off as an
-`Ethereum Improvement Proposal (EIP) <https://github.com/ethereum/EIPs>`_, that defines the
+`EthereumAI Improvement Proposal (EIP) <https://github.com/ethereumai/EIPs>`_, that defines the
 standard functions that a smart contract providing tokens should implement.
 
 The EIP-20 standard provides function definitions, but does not provide an implementation example.
@@ -210,10 +210,10 @@ Construction and deployment of smart contracts happens with the *deploy* method:
            [<initialValue>,]
            <param1>, ..., <paramN>).send();
 
-This will create a new instance of the smart contract on the Ethereum blockchain using the
+This will create a new instance of the smart contract on the EthereumAI blockchain using the
 supplied credentials, and constructor parameter values.
 
-The *<initialValue>* parameter is only required if your smart contract accepts Ether on
+The *<initialValue>* parameter is only required if your smart contract accepts EtherAI on
 construction. This requires the Solidity
 `payable <http://solidity.readthedocs.io/en/develop/frequently-asked-questions.html?highlight=payable#how-do-i-initialize-a-contract-with-only-a-specific-amount-of-wei>`_
 modifier to be present in the contract.
@@ -247,10 +247,10 @@ Transaction Managers
 
 web3j provides a
 `TransactionManager <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/tx/TransactionManager.java>`_
-abstraction to control the manner you connect to Ethereum clients with. The default mechanism uses
+abstraction to control the manner you connect to EthereumAI clients with. The default mechanism uses
 web3j's
 `RawTransactionManager <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/tx/RawTransactionManager.java>`_
-which works with Ethereum wallet files to sign transactions offline before submitting them to the
+which works with EthereumAI wallet files to sign transactions offline before submitting them to the
 network.
 
 However, you may wish to modify the transaction manager, which you can pass to the smart
@@ -262,7 +262,7 @@ contract deployment and creation methods instead of a credentials object, i.e.::
 
 In addition to the RawTransactionManager, web3j provides a
 `ClientTransactionManager <https://github.com/web3j/web3j/blob/master/src/main/java/org/web3j/tx/ClientTransactionManager.java>`_
-which passes the responsibility of signing your transaction on to the Ethereum client you are
+which passes the responsibility of signing your transaction on to the EthereumAI client you are
 connecting to.
 
 There is also a
@@ -275,7 +275,7 @@ Specifying the Chain Id on Transactions (EIP-155)
 
 The RawTransactionManager takes an optional *chainId* parameter to specify the chain id to be used
 on transactions as per
-`EIP-155 <https://github.com/ethereum/EIPs/issues/155>`_. This prevents transactions from one chain
+`EIP-155 <https://github.com/ethereumai/EIPs/issues/155>`_. This prevents transactions from one chain
 being re-broadcast onto another chain, such as from Ropsten to Mainnet::
 
    TransactionManager transactionManager = new RawTransactionManager(
@@ -283,9 +283,9 @@ being re-broadcast onto another chain, such as from Ropsten to Mainnet::
 
 In order to avoid having to change config or code to specify which chain you are working with,
 web3j's default behaviour is to not specify chain ids on transactions to simplify working with the
-library. However, the recommendation of the Ethereum community is to use them.
+library. However, the recommendation of the EthereumAI community is to use them.
 
-You can obtain the chain id of the network that your Ethereum client is connected to with the
+You can obtain the chain id of the network that your EthereumAI client is connected to with the
 following request::
 
    web3j.netVersion().send().getNetVersion();
@@ -296,7 +296,7 @@ following request::
 Transaction Receipt Processors
 ------------------------------
 
-By default, when a new transaction is submitted by web3j to an Ethereum client, web3j will
+By default, when a new transaction is submitted by web3j to an EthereumAI client, web3j will
 continually poll the client until it receives a
 `TransactionReceipt <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/protocol/core/methods/response/TransactionReceipt.java>`_,
 indicating that the transaction has been added to the blockchain. If you are sending a number of
@@ -359,7 +359,7 @@ Invoking transactions and events
 All transactional smart contract methods are named identically to their Solidity methods, taking
 the same parameter values. Transactional calls do not return any values, regardless of the return
 type specified on the method. Hence, for all transactional methods the
-`Transaction Receipt <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionreceipt>`_
+`Transaction Receipt <https://github.com/ethereumai/wiki/wiki/JSON-RPC#eai_gettransactionreceipt>`_
 associated with the transaction is returned.::
 
    TransactionReceipt transactionReceipt = contract.someMethod(

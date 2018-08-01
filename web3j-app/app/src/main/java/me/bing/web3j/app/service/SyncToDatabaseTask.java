@@ -23,7 +23,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameter;
-import org.web3j.protocol.core.methods.response.EthBlock;
+import org.web3j.protocol.core.methods.response.EaiBlock;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 
 /**
@@ -49,13 +49,13 @@ public class SyncToDatabaseTask {
     @Scheduled(fixedRate = 5000)
     public void run() throws Exception {
         Long latest = blockMapper.latestNumber();
-        long ethLatest = web3j.ethBlockNumber().send().getBlockNumber().longValue();
+        long eaiLatest = web3j.eaiBlockNumber().send().getBlockNumber().longValue();
         if (null == latest) {
             latest = 0L;
         }
 
-        for (long i = latest + 1; i < ethLatest + 1; i++) {
-            EthBlock.Block blk = web3j.ethGetBlockByNumber(
+        for (long i = latest + 1; i < eaiLatest + 1; i++) {
+            EaiBlock.Block blk = web3j.eaiGetBlockByNumber(
                 DefaultBlockParameter.valueOf(BigInteger.valueOf(i)), true)
                 .send().getBlock();
 
@@ -86,7 +86,7 @@ public class SyncToDatabaseTask {
         List<CompletableFuture> futures = new ArrayList<>();
 
         for (Transaction tx : transactions) {
-            futures.add(web3j.ethGetTransactionReceipt(tx.getHash()).sendAsync()
+            futures.add(web3j.eaiGetTransactionReceipt(tx.getHash()).sendAsync()
                 .thenApply(receipt -> {
                     TransactionReceipt r = receipt.getTransactionReceipt().get();
                     tx.setType(null == r.getContractAddress() ? 0 : 1);
@@ -124,7 +124,7 @@ public class SyncToDatabaseTask {
 
         for (Account account : accounts) {
             futures.add(web3j
-                .ethGetBalance(account.getHash(), DefaultBlockParameter.valueOf(Constant.LatestBlockNumberKey))
+                .eaiGetBalance(account.getHash(), DefaultBlockParameter.valueOf(Constant.LatestBlockNumberKey))
                 .sendAsync()
                 .thenApply(balance -> {
                     account.setBalance(balance.getBalance().divide(Constant.GWeiFactor).longValue());
@@ -132,7 +132,7 @@ public class SyncToDatabaseTask {
                 })
             );
             futures.add(web3j
-                .ethGetTransactionCount(account.getHash(), DefaultBlockParameter.valueOf(Constant.LatestBlockNumberKey))
+                .eaiGetTransactionCount(account.getHash(), DefaultBlockParameter.valueOf(Constant.LatestBlockNumberKey))
                 .sendAsync()
                 .thenApply(count -> {
                     account.setNonce(count.getTransactionCount().intValue());

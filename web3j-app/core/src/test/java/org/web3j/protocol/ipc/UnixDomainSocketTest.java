@@ -91,7 +91,7 @@ public class UnixDomainSocketTest {
     @Test
     public void testSlowResponse() throws Exception {
         String response = "{\"jsonrpc\":\"2.0\",\"id\":1,"
-                        + "\"result\":\"Geth/v1.5.4-stable-b70acf3c/darwin/go1.7.3\"}\n";
+                        + "\"result\":\"Geai/v1.5.4-stable-b70acf3c/darwin/go1.7.3\"}\n";
         unixDomainSocket = new UnixDomainSocket(reader, writer, response.length());
         final LinkedList<String> segments = new LinkedList<>();
         // 1st part of response

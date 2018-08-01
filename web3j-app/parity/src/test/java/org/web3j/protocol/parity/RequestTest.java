@@ -118,12 +118,12 @@ public class RequestTest extends RequestTester {
                 + "\"params\":[],\"id\":1}");
     }
     
-    public void testParityImportGethAccounts() throws Exception {
-        ArrayList<String> gethAccounts = new ArrayList<>();
-        gethAccounts.add("0x407d73d8a49eeb85d32cf465507dd71d507100c1");
-        web3j.parityImportGethAccounts(gethAccounts).send();
+    public void testParityImportGeaiAccounts() throws Exception {
+        ArrayList<String> geaiAccounts = new ArrayList<>();
+        geaiAccounts.add("0x407d73d8a49eeb85d32cf465507dd71d507100c1");
+        web3j.parityImportGeaiAccounts(geaiAccounts).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"parity_importGethAccounts\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"parity_importGeaiAccounts\","
                 + "\"params\":[[\"0x407d73d8a49eeb85d32cf465507dd71d507100c1\"]],\"id\":1}");
     }
     
@@ -180,10 +180,10 @@ public class RequestTest extends RequestTester {
         //CHECKSTYLE:ON
     }
 
-    public void testParityListGethAccounts() throws Exception {
-        web3j.parityListGethAccounts().send();
+    public void testParityListGeaiAccounts() throws Exception {
+        web3j.parityListGeaiAccounts().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"parity_listGethAccounts\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"parity_listGeaiAccounts\","
                 + "\"params\":[],\"id\":1}");
     }
     

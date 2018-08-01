@@ -7,8 +7,8 @@ import java.util.Optional;
 
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.Request;
-import org.web3j.protocol.core.methods.response.EthFilter;
-import org.web3j.protocol.core.methods.response.EthLog;
+import org.web3j.protocol.core.methods.response.EaiFilter;
+import org.web3j.protocol.core.methods.response.EaiLog;
 
 /**
  * Handler for working with block filter requests.
@@ -20,15 +20,15 @@ public class BlockFilter extends Filter<String> {
     }
 
     @Override
-    EthFilter sendRequest() throws IOException {
-        return web3j.ethNewBlockFilter().send();
+    EaiFilter sendRequest() throws IOException {
+        return web3j.eaiNewBlockFilter().send();
     }
 
     @Override
-    void process(List<EthLog.LogResult> logResults) {
-        for (EthLog.LogResult logResult : logResults) {
-            if (logResult instanceof EthLog.Hash) {
-                String blockHash = ((EthLog.Hash) logResult).get();
+    void process(List<EaiLog.LogResult> logResults) {
+        for (EaiLog.LogResult logResult : logResults) {
+            if (logResult instanceof EaiLog.Hash) {
+                String blockHash = ((EaiLog.Hash) logResult).get();
                 callback.onEvent(blockHash);
             } else {
                 throw new FilterException(
@@ -46,7 +46,7 @@ public class BlockFilter extends Filter<String> {
      * Optional.empty()
      */
     @Override
-    protected Optional<Request<?, EthLog>> getFilterLogs(BigInteger filterId) {
+    protected Optional<Request<?, EaiLog>> getFilterLogs(BigInteger filterId) {
         return Optional.empty();
     }
 }

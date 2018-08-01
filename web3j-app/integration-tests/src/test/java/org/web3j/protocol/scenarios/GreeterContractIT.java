@@ -24,8 +24,8 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Integration test demonstrating integration with Greeter contract taken from the
- * <a href="https://github.com/ethereum/go-ethereum/wiki/Contract-Tutorial">Contract Tutorial</a>
- * on the Go Ethereum Wiki.
+ * <a href="https://github.com/ethereumai/go-ethereumai/wiki/Contract-Tutorial">Contract Tutorial</a>
+ * on the Go EthereumAI Wiki.
  */
 public class GreeterContractIT extends Scenario {
 
@@ -77,8 +77,8 @@ public class GreeterContractIT extends Scenario {
                 BigInteger.ZERO,
                 getGreeterSolidityBinary() + encodedConstructor);
 
-        org.web3j.protocol.core.methods.response.EthSendTransaction
-                transactionResponse = web3j.ethSendTransaction(transaction)
+        org.web3j.protocol.core.methods.response.EaiSendTransaction
+                transactionResponse = web3j.eaiSendTransaction(transaction)
                 .sendAsync().get();
 
         return transactionResponse.getTransactionHash();
@@ -89,8 +89,8 @@ public class GreeterContractIT extends Scenario {
 
         String encodedFunction = FunctionEncoder.encode(function);
 
-        org.web3j.protocol.core.methods.response.EthCall response = web3j.ethCall(
-                Transaction.createEthCallTransaction(
+        org.web3j.protocol.core.methods.response.EaiCall response = web3j.eaiCall(
+                Transaction.createEaiCallTransaction(
                         ALICE.getAddress(), contractAddress, encodedFunction),
                 DefaultBlockParameterName.LATEST)
                 .sendAsync().get();

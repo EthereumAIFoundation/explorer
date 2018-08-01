@@ -72,7 +72,7 @@
                 </tr>
                 <tr>
                     <td>Value:</td>
-                    <td>{{ numberAddComma(tx.value/1000000000000000000) }} Eth</td>
+                    <td>{{ numberAddComma(tx.value/1000000000000000000) }} Eai</td>
                 </tr>
                 <tr>
                     <td>Gas Limit:</td>

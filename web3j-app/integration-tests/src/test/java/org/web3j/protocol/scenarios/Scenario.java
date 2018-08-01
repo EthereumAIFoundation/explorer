@@ -18,8 +18,8 @@ import org.web3j.crypto.Credentials;
 import org.web3j.protocol.admin.Admin;
 import org.web3j.protocol.admin.methods.response.PersonalUnlockAccount;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.response.EthGetTransactionCount;
-import org.web3j.protocol.core.methods.response.EthGetTransactionReceipt;
+import org.web3j.protocol.core.methods.response.EaiGetTransactionCount;
+import org.web3j.protocol.core.methods.response.EaiGetTransactionReceipt;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.http.HttpService;
 
@@ -37,7 +37,7 @@ public class Scenario {
     private static final String WALLET_PASSWORD = "";
 
     /*
-    If you want to use regular Ethereum wallet addresses, provide a WALLET address variable
+    If you want to use regular EthereumAI wallet addresses, provide a WALLET address variable
     "0x..." // 20 bytes (40 hex characters) & replace instances of ALICE.getAddress() with this
     WALLET address variable you've defined.
     */
@@ -105,17 +105,17 @@ public class Scenario {
 
     private Optional<TransactionReceipt> sendTransactionReceiptRequest(
             String transactionHash) throws Exception {
-        EthGetTransactionReceipt transactionReceipt =
-                web3j.ethGetTransactionReceipt(transactionHash).sendAsync().get();
+        EaiGetTransactionReceipt transactionReceipt =
+                web3j.eaiGetTransactionReceipt(transactionHash).sendAsync().get();
 
         return transactionReceipt.getTransactionReceipt();
     }
 
     BigInteger getNonce(String address) throws Exception {
-        EthGetTransactionCount ethGetTransactionCount = web3j.ethGetTransactionCount(
+        EaiGetTransactionCount eaiGetTransactionCount = web3j.eaiGetTransactionCount(
                 address, DefaultBlockParameterName.LATEST).sendAsync().get();
 
-        return ethGetTransactionCount.getTransactionCount();
+        return eaiGetTransactionCount.getTransactionCount();
     }
 
     Function createFibonacciFunction() {

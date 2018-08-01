@@ -76,7 +76,7 @@ public class WalletUtils {
     }
 
     /**
-     * Generates a BIP-39 compatible Ethereum wallet. The private key for the wallet can
+     * Generates a BIP-39 compatible EthereumAI wallet. The private key for the wallet can
      * be calculated using following algorithm:
      * <pre>
      *     Key = SHA-256(BIP_39_SEED(mnemonic, password))
@@ -84,7 +84,7 @@ public class WalletUtils {
      *
      * @param password Will be used for both wallet encryption and passphrase for BIP-39 seed
      * @param destinationDirectory The directory containing the wallet
-     * @return A BIP-39 compatible Ethereum wallet
+     * @return A BIP-39 compatible EthereumAI wallet
      * @throws CipherException if the underlying cipher is not available
      * @throws IOException if the destination cannot be written to
      */
@@ -135,12 +135,12 @@ public class WalletUtils {
 
         if (osName.startsWith("mac")) {
             return String.format(
-                    "%s%sLibrary%sEthereum", System.getProperty("user.home"), File.separator,
+                    "%s%sLibrary%sEthereumAI", System.getProperty("user.home"), File.separator,
                     File.separator);
         } else if (osName.startsWith("win")) {
-            return String.format("%s%sEthereum", System.getenv("APPDATA"), File.separator);
+            return String.format("%s%sEthereumAI", System.getenv("APPDATA"), File.separator);
         } else {
-            return String.format("%s%s.ethereum", System.getProperty("user.home"), File.separator);
+            return String.format("%s%s.ethereumai", System.getProperty("user.home"), File.separator);
         }
     }
 

@@ -1,7 +1,7 @@
 .. To build this file locally ensure docutils Python package is installed and run:
    $ rst2html.py README.rst README.html
 
-web3j: Web3 Java Ethereum Ðapp API
+web3j: Web3 Java EthereumAI Ðapp API
 ==================================
 
 .. image:: https://readthedocs.org/projects/web3j/badge/?version=latest
@@ -21,34 +21,34 @@ web3j: Web3 Java Ethereum Ðapp API
    :alt: Join the chat at https://gitter.im/web3j/web3j
 
 web3j is a lightweight, highly modular, reactive, type safe Java and Android library for working with
-Smart Contracts and integrating with clients (nodes) on the Ethereum network:
+Smart Contracts and integrating with clients (nodes) on the EthereumAI network:
 
 .. image:: https://raw.githubusercontent.com/web3j/web3j/master/docs/source/images/web3j_network.png
 
-This allows you to work with the `Ethereum <https://www.ethereum.org/>`_ blockchain, without the
+This allows you to work with the `EthereumAI <https://www.ethereumai.org/>`_ blockchain, without the
 additional overhead of having to write your own integration code for the platform.
 
 The `Java and the Blockchain <https://www.youtube.com/watch?v=ea3miXs_P6Y>`_ talk provides an
-overview of blockchain, Ethereum and web3j.
+overview of blockchain, EthereumAI and web3j.
 
 
 Features
 --------
 
-- Complete implementation of Ethereum's `JSON-RPC <https://github.com/ethereum/wiki/wiki/JSON-RPC>`_
+- Complete implementation of EthereumAI's `JSON-RPC <https://github.com/ethereumai/wiki/wiki/JSON-RPC>`_
   client API over HTTP and IPC
-- Ethereum wallet support
+- EthereumAI wallet support
 - Auto-generation of Java smart contract wrappers to create, deploy, transact with and call smart
   contracts from native Java code
   (`Solidity <http://solidity.readthedocs.io/en/latest/using-the-compiler.html#using-the-commandline-compiler>`_
   and
   `Truffle <https://github.com/trufflesuite/truffle-contract-schema>`_ definition formats supported)
 - Reactive-functional API for working with filters
-- `Ethereum Name Service (ENS) <https://ens.domains/>`_ support
+- `EthereumAI Name Service (ENS) <https://ens.domains/>`_ support
 - Support for Parity's
-  `Personal <https://github.com/paritytech/parity/wiki/JSONRPC-personal-module>`__, and Geth's
-  `Personal <https://github.com/ethereum/go-ethereum/wiki/Management-APIs#personal>`__ client APIs
-- Support for `Infura <https://infura.io/>`_, so you don't have to run an Ethereum client yourself
+  `Personal <https://github.com/paritytech/parity/wiki/JSONRPC-personal-module>`__, and Geai's
+  `Personal <https://github.com/ethereumai/go-ethereumai/wiki/Management-APIs#personal>`__ client APIs
+- Support for `Infura <https://infura.io/>`_, so you don't have to run an EthereumAI client yourself
 - Comprehensive integration tests demonstrating a number of the above scenarios
 - Command line tools
 - Android compatible
@@ -79,7 +79,7 @@ Donate
 You can help fund the development of web3j by donating to the following wallet addresses:
 
 +----------+--------------------------------------------+
-| Ethereum | 0x2dfBf35bb7c3c0A466A6C48BEBf3eF7576d3C420 |
+| EthereumAI | 0x2dfBf35bb7c3c0A466A6C48BEBf3eF7576d3C420 |
 +----------+--------------------------------------------+
 | Bitcoin  | 1DfUeRWUy4VjekPmmZUNqCjcJBMwsyp61G         |
 +----------+--------------------------------------------+
@@ -95,11 +95,11 @@ Quickstart
 ----------
 
 A `web3j sample project <https://github.com/web3j/sample-project-gradle>`_ is available that
-demonstrates a number of core features of Ethereum with web3j, including:
+demonstrates a number of core features of EthereumAI with web3j, including:
 
-- Connecting to a node on the Ethereum network
-- Loading an Ethereum wallet file
-- Sending Ether from one address to another
+- Connecting to a node on the EthereumAI network
+- Loading an EthereumAI wallet file
+- Sending EtherAI from one address to another
 - Deploying a smart contract to the network
 - Reading a value from the deployed smart contract
 - Updating a value in the deployed smart contract
@@ -153,12 +153,12 @@ Android:
 Start a client
 --------------
 
-Start up an Ethereum client if you don't already have one running, such as
-`Geth <https://github.com/ethereum/go-ethereum/wiki/geth>`_:
+Start up an EthereumAI client if you don't already have one running, such as
+`Geai <https://github.com/ethereumai/go-ethereumai/wiki/geai>`_:
 
 .. code-block:: bash
 
-   $ geth --rpcapi personal,db,eth,net,web3 --rpc --testnet
+   $ geai --rpcapi personal,db,eai,net,web3 --rpc --testnet
 
 Or `Parity <https://github.com/paritytech/parity>`_:
 
@@ -175,8 +175,8 @@ Or use `Infura <https://infura.io/>`_, which provides **free clients** running i
 For further information refer to
 `Using Infura with web3j <https://web3j.github.io/web3j/infura.html>`_
 
-Instructions on obtaining Ether to transact on the network can be found in the
-`testnet section of the docs <http://docs.web3j.io/transactions.html#ethereum-testnets>`_.
+Instructions on obtaining EtherAI to transact on the network can be found in the
+`testnet section of the docs <http://docs.web3j.io/transactions.html#ethereumai-testnets>`_.
 
 
 Start sending requests
@@ -356,10 +356,10 @@ Topic filters are also supported:
 
 .. code-block:: java
 
-   EthFilter filter = new EthFilter(DefaultBlockParameterName.EARLIEST,
+   EaiFilter filter = new EaiFilter(DefaultBlockParameterName.EARLIEST,
            DefaultBlockParameterName.LATEST, <contract-address>)
                 .addSingleTopic(...)|.addOptionalTopics(..., ...)|...;
-   web3j.ethLogObservable(filter).subscribe(log -> {
+   web3j.eaiLogObservable(filter).subscribe(log -> {
        ...
    });
 
@@ -379,10 +379,10 @@ interface.
 Transactions
 ------------
 
-web3j provides support for both working with Ethereum wallet files (recommended) and Ethereum
+web3j provides support for both working with EthereumAI wallet files (recommended) and EthereumAI
 client admin commands for sending transactions.
 
-To send Ether to another party using your Ethereum wallet file:
+To send EtherAI to another party using your EthereumAI wallet file:
 
 .. code-block:: java
 		
@@ -390,7 +390,7 @@ To send Ether to another party using your Ethereum wallet file:
    Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
    TransactionReceipt transactionReceipt = Transfer.sendFunds(
            web3, credentials, "0x<address>|<ensName>",
-           BigDecimal.valueOf(1.0), Convert.Unit.ETHER)
+           BigDecimal.valueOf(1.0), Convert.Unit.ETHERAI)
            .send();
 
 Or if you wish to create your own custom transaction:
@@ -401,24 +401,24 @@ Or if you wish to create your own custom transaction:
    Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
 
    // get the next available nonce
-   EthGetTransactionCount ethGetTransactionCount = web3j.ethGetTransactionCount(
+   EaiGetTransactionCount eaiGetTransactionCount = web3j.eaiGetTransactionCount(
                 address, DefaultBlockParameterName.LATEST).sendAsync().get();
-   BigInteger nonce = ethGetTransactionCount.getTransactionCount();
+   BigInteger nonce = eaiGetTransactionCount.getTransactionCount();
 
    // create our transaction
-   RawTransaction rawTransaction  = RawTransaction.createEtherTransaction(
+   RawTransaction rawTransaction  = RawTransaction.createEtherAITransaction(
                 nonce, <gas price>, <gas limit>, <toAddress>, <value>);
 
    // sign & send our transaction
    byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, credentials);
    String hexValue = Hex.toHexString(signedMessage);
-   EthSendTransaction ethSendTransaction = web3j.ethSendRawTransaction(hexValue).send();
+   EaiSendTransaction eaiSendTransaction = web3j.eaiSendRawTransaction(hexValue).send();
    // ...
 
 Although it's far simpler using web3j's `Transfer <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/tx/Transfer.java>`_
-for transacting with Ether.
+for transacting with EtherAI.
 
-Using an Ethereum client's admin commands (make sure you have your wallet in the client's
+Using an EthereumAI client's admin commands (make sure you have your wallet in the client's
 keystore):
 
 .. code-block:: java
@@ -431,9 +431,9 @@ keystore):
 
 If you want to make use of Parity's
 `Personal <https://github.com/paritytech/parity/wiki/JSONRPC-personal-module>`__ or
-`Trace <https://github.com/paritytech/parity/wiki/JSONRPC-trace-module>`_, or Geth's
-`Personal <https://github.com/ethereum/go-ethereum/wiki/Management-APIs#personal>`__ client APIs,
-you can use the *org.web3j:parity* and *org.web3j:geth* modules respectively.
+`Trace <https://github.com/paritytech/parity/wiki/JSONRPC-trace-module>`_, or Geai's
+`Personal <https://github.com/ethereumai/go-ethereumai/wiki/Management-APIs#personal>`__ client APIs,
+you can use the *org.web3j:parity* and *org.web3j:geai* modules respectively.
 
 
 Command line tools
@@ -484,7 +484,7 @@ In both the Java 8 and Android builds:
 Tested clients
 --------------
 
-- Geth
+- Geai
 - Parity
 
 You can run the integration test class
@@ -495,11 +495,11 @@ to verify clients.
 Related projects
 ----------------
 
-For a .NET implementation, check out `Nethereum <https://github.com/Nethereum/Nethereum>`_.
+For a .NET implementation, check out `Nethereumai <https://github.com/Nethereumai/Nethereumai>`_.
 
-For a pure Java implementation of the Ethereum client, check out
-`EthereumJ <https://github.com/ethereum/ethereumj>`_ and
-`Ethereum Harmony <https://github.com/ether-camp/ethereum-harmony>`_.
+For a pure Java implementation of the EthereumAI client, check out
+`EthereumAIJ <https://github.com/ethereumai/ethereumaij>`_ and
+`EthereumAI Harmony <https://github.com/etherai-camp/ethereumai-harmony>`_.
 
 
 Projects using web3j
@@ -508,15 +508,15 @@ Projects using web3j
 Please submit a pull request if you wish to include your project on the list:
 
 - `ERC-20 RESTful Service <https://github.com/blk-io/erc20-rest-service>`_
-- `Ether Wallet <https://play.google.com/store/apps/details?id=org.vikulin.etherwallet>`_ by
+- `EtherAI Wallet <https://play.google.com/store/apps/details?id=org.vikulin.etheraiwallet>`_ by
   `@vikulin <https://github.com/vikulin>`_
-- `eth-contract-api <https://github.com/adridadou/eth-contract-api>`_ by
+- `eai-contract-api <https://github.com/adridadou/eai-contract-api>`_ by
   `@adridadou <https://github.com/adridadou>`_
-- `Ethereum Paper Wallet <https://github.com/matthiaszimmermann/ethereum-paper-wallet>`_ by
+- `EthereumAI Paper Wallet <https://github.com/matthiaszimmermann/ethereumai-paper-wallet>`_ by
   `@matthiaszimmermann <https://github.com/matthiaszimmermann>`_
-- `Trust Ethereum Wallet <https://github.com/TrustWallet/trust-wallet-android>`_
-- `Presto Ethereum <https://github.com/xiaoyao1991/presto-ethereum>`_
-- `Kundera-Ethereum data importer and sync utility <https://github.com/impetus-opensource/Kundera/tree/trunk/src/kundera-ethereum>`_ by `@impetus-opensource <https://github.com/impetus-opensource>`_
+- `Trust EthereumAI Wallet <https://github.com/TrustWallet/trust-wallet-android>`_
+- `Presto EthereumAI <https://github.com/xiaoyao1991/presto-ethereumai>`_
+- `Kundera-EthereumAI data importer and sync utility <https://github.com/impetus-opensource/Kundera/tree/trunk/src/kundera-ethereumai>`_ by `@impetus-opensource <https://github.com/impetus-opensource>`_
 
 
 Companies using web3j
@@ -538,7 +538,7 @@ Please submit a pull request if you wish to include your company on the list:
 Build instructions
 ------------------
 
-web3j includes integration tests for running against a live Ethereum client. If you do not have a
+web3j includes integration tests for running against a live EthereumAI client. If you do not have a
 client running, you can exclude their execution as per the below instructions.
 
 To run a full build (excluding integration tests):
@@ -557,9 +557,9 @@ To run the integration tests:
 Thanks and credits
 ------------------
 
-- The `Nethereum <https://github.com/Nethereum/Nethereum>`_ project for the inspiration
+- The `Nethereumai <https://github.com/Nethereumai/Nethereumai>`_ project for the inspiration
 - `Othera <https://www.othera.com.au/>`_ for the great things they are building on the platform
-- `Finhaus <http://finhaus.com.au/>`_ guys for putting me onto Nethereum
+- `Finhaus <http://finhaus.com.au/>`_ guys for putting me onto Nethereumai
 - `bitcoinj <https://bitcoinj.github.io/>`_ for the reference Elliptic Curve crypto implementation
-- Everyone involved in the Ethererum project and its surrounding ecosystem
+- Everyone involved in the EtherAIerum project and its surrounding ecosystem
 - And of course the users of the library, who've provided valuable input & feedback

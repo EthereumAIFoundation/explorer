@@ -1,5 +1,5 @@
 <template>
-    <!-- https://etherscan.io/txsPending -->
+    <!-- https://etheraiscan.io/txsPending -->
     <div class=vue-txs-pending>
         <vue-bread v-bind:arr=breadcrumb title="Pending Transactions"></vue-bread>
         <div class="container mt20">
@@ -37,7 +37,7 @@
                     <td class=tdxxxwddd>
                         <router-link v-bind:to='fragApi + "/address/" + o.to.hash'>{{ o.to.alias || o.to.hash }}</router-link>
                     </td>
-                    <td class=text-right>{{ numberAddComma(o.value/1000000000000000000) }} Eth</td>
+                    <td class=text-right>{{ numberAddComma(o.value/1000000000000000000) }} Eai</td>
                 </tr>
             </table>
             <vue-pagination v-bind:current=currentPage right=1 v-bind:total=totalPage v-on:first=onFirst v-on:last=onLast v-on:next=onNext v-on:prev=onPrev v-on:to=onTo></vue-pagination>

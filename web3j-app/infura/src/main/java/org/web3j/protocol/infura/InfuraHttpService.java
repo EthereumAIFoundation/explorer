@@ -10,8 +10,8 @@ import org.web3j.protocol.http.HttpService;
  */
 public class InfuraHttpService extends HttpService {
 
-    private static final String INFURA_ETHEREUM_PREFERRED_CLIENT =
-            "Infura-Ethereum-Preferred-Client";
+    private static final String INFURA_ETHEREUMAI_PREFERRED_CLIENT =
+            "Infura-EthereumAI-Preferred-Client";
 
     private final Map<String, String> clientVersionHeader;
 
@@ -35,10 +35,10 @@ public class InfuraHttpService extends HttpService {
         }
 
         if (required) {
-            return Collections.singletonMap(INFURA_ETHEREUM_PREFERRED_CLIENT, clientVersion);
+            return Collections.singletonMap(INFURA_ETHEREUMAI_PREFERRED_CLIENT, clientVersion);
         } else {
             return Collections.singletonMap(
-                    INFURA_ETHEREUM_PREFERRED_CLIENT, clientVersion + "; required=false");
+                    INFURA_ETHEREUMAI_PREFERRED_CLIENT, clientVersion + "; required=false");
         }
     }
 }

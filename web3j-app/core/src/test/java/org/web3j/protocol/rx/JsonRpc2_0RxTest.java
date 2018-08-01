@@ -20,10 +20,10 @@ import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jService;
 import org.web3j.protocol.core.DefaultBlockParameterNumber;
 import org.web3j.protocol.core.Request;
-import org.web3j.protocol.core.methods.response.EthBlock;
-import org.web3j.protocol.core.methods.response.EthFilter;
-import org.web3j.protocol.core.methods.response.EthLog;
-import org.web3j.protocol.core.methods.response.EthUninstallFilter;
+import org.web3j.protocol.core.methods.response.EaiBlock;
+import org.web3j.protocol.core.methods.response.EaiFilter;
+import org.web3j.protocol.core.methods.response.EaiLog;
+import org.web3j.protocol.core.methods.response.EaiUninstallFilter;
 import org.web3j.utils.Numeric;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -52,23 +52,23 @@ public class JsonRpc2_0RxTest {
     @Test
     public void testReplayBlocksObservable() throws Exception {
 
-        List<EthBlock> ethBlocks = Arrays.asList(createBlock(0), createBlock(1), createBlock(2));
+        List<EaiBlock> eaiBlocks = Arrays.asList(createBlock(0), createBlock(1), createBlock(2));
 
-        OngoingStubbing<EthBlock> stubbing =
-                when(web3jService.send(any(Request.class), eq(EthBlock.class)));
-        for (EthBlock ethBlock : ethBlocks) {
-            stubbing = stubbing.thenReturn(ethBlock);
+        OngoingStubbing<EaiBlock> stubbing =
+                when(web3jService.send(any(Request.class), eq(EaiBlock.class)));
+        for (EaiBlock eaiBlock : eaiBlocks) {
+            stubbing = stubbing.thenReturn(eaiBlock);
         }
 
-        Observable<EthBlock> observable = web3j.replayBlocksObservable(
+        Observable<EaiBlock> observable = web3j.replayBlocksObservable(
                 new DefaultBlockParameterNumber(BigInteger.ZERO),
                 new DefaultBlockParameterNumber(BigInteger.valueOf(2)),
                 false);
 
-        CountDownLatch transactionLatch = new CountDownLatch(ethBlocks.size());
+        CountDownLatch transactionLatch = new CountDownLatch(eaiBlocks.size());
         CountDownLatch completedLatch = new CountDownLatch(1);
 
-        List<EthBlock> results = new ArrayList<>(ethBlocks.size());
+        List<EaiBlock> results = new ArrayList<>(eaiBlocks.size());
         Subscription subscription = observable.subscribe(
                 result -> {
                     results.add(result);
@@ -78,7 +78,7 @@ public class JsonRpc2_0RxTest {
                 () -> completedLatch.countDown());
 
         transactionLatch.await(1, TimeUnit.SECONDS);
-        assertThat(results, equalTo(ethBlocks));
+        assertThat(results, equalTo(eaiBlocks));
 
         subscription.unsubscribe();
 
@@ -89,23 +89,23 @@ public class JsonRpc2_0RxTest {
     @Test
     public void testReplayBlocksDescendingObservable() throws Exception {
 
-        List<EthBlock> ethBlocks = Arrays.asList(createBlock(2), createBlock(1), createBlock(0));
+        List<EaiBlock> eaiBlocks = Arrays.asList(createBlock(2), createBlock(1), createBlock(0));
 
-        OngoingStubbing<EthBlock> stubbing =
-                when(web3jService.send(any(Request.class), eq(EthBlock.class)));
-        for (EthBlock ethBlock : ethBlocks) {
-            stubbing = stubbing.thenReturn(ethBlock);
+        OngoingStubbing<EaiBlock> stubbing =
+                when(web3jService.send(any(Request.class), eq(EaiBlock.class)));
+        for (EaiBlock eaiBlock : eaiBlocks) {
+            stubbing = stubbing.thenReturn(eaiBlock);
         }
 
-        Observable<EthBlock> observable = web3j.replayBlocksObservable(
+        Observable<EaiBlock> observable = web3j.replayBlocksObservable(
                 new DefaultBlockParameterNumber(BigInteger.ZERO),
                 new DefaultBlockParameterNumber(BigInteger.valueOf(2)),
                 false, false);
 
-        CountDownLatch transactionLatch = new CountDownLatch(ethBlocks.size());
+        CountDownLatch transactionLatch = new CountDownLatch(eaiBlocks.size());
         CountDownLatch completedLatch = new CountDownLatch(1);
 
-        List<EthBlock> results = new ArrayList<>(ethBlocks.size());
+        List<EaiBlock> results = new ArrayList<>(eaiBlocks.size());
         Subscription subscription = observable.subscribe(
                 result -> {
                     results.add(result);
@@ -115,7 +115,7 @@ public class JsonRpc2_0RxTest {
                 () -> completedLatch.countDown());
 
         transactionLatch.await(1, TimeUnit.SECONDS);
-        assertThat(results, equalTo(ethBlocks));
+        assertThat(results, equalTo(eaiBlocks));
 
         subscription.unsubscribe();
 
@@ -125,55 +125,55 @@ public class JsonRpc2_0RxTest {
 
     @Test
     public void testCatchUpToLatestAndSubscribeToNewBlockObservable() throws Exception {
-        List<EthBlock> expected = Arrays.asList(
+        List<EaiBlock> expected = Arrays.asList(
                 createBlock(0), createBlock(1), createBlock(2),
                 createBlock(3), createBlock(4), createBlock(5),
                 createBlock(6));
 
-        List<EthBlock> ethBlocks = Arrays.asList(
+        List<EaiBlock> eaiBlocks = Arrays.asList(
                 expected.get(2),  // greatest block
                 expected.get(0), expected.get(1), expected.get(2),
                 expected.get(4), // greatest block
                 expected.get(3), expected.get(4),
                 expected.get(4),  // greatest block
-                expected.get(5),  // initial response from ethGetFilterLogs call
+                expected.get(5),  // initial response from eaiGetFilterLogs call
                 expected.get(6)); // subsequent block from new block observable
 
-        OngoingStubbing<EthBlock> stubbing =
-                when(web3jService.send(any(Request.class), eq(EthBlock.class)));
-        for (EthBlock ethBlock : ethBlocks) {
-            stubbing = stubbing.thenReturn(ethBlock);
+        OngoingStubbing<EaiBlock> stubbing =
+                when(web3jService.send(any(Request.class), eq(EaiBlock.class)));
+        for (EaiBlock eaiBlock : eaiBlocks) {
+            stubbing = stubbing.thenReturn(eaiBlock);
         }
 
-        EthFilter ethFilter = objectMapper.readValue(
+        EaiFilter eaiFilter = objectMapper.readValue(
                 "{\n"
                         + "  \"id\":1,\n"
                         + "  \"jsonrpc\": \"2.0\",\n"
                         + "  \"result\": \"0x1\"\n"
-                        + "}", EthFilter.class);
-        EthLog ethLog = objectMapper.readValue(
+                        + "}", EaiFilter.class);
+        EaiLog eaiLog = objectMapper.readValue(
                 "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":["
                         + "\"0x31c2342b1e0b8ffda1507fbffddf213c4b3c1e819ff6a84b943faabb0ebf2403\""
                         + "]}",
-                EthLog.class);
-        EthUninstallFilter ethUninstallFilter = objectMapper.readValue(
-                "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":true}", EthUninstallFilter.class);
+                EaiLog.class);
+        EaiUninstallFilter eaiUninstallFilter = objectMapper.readValue(
+                "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":true}", EaiUninstallFilter.class);
 
-        when(web3jService.send(any(Request.class), eq(EthFilter.class)))
-                .thenReturn(ethFilter);
-        when(web3jService.send(any(Request.class), eq(EthLog.class)))
-                .thenReturn(ethLog);
-        when(web3jService.send(any(Request.class), eq(EthUninstallFilter.class)))
-                .thenReturn(ethUninstallFilter);
+        when(web3jService.send(any(Request.class), eq(EaiFilter.class)))
+                .thenReturn(eaiFilter);
+        when(web3jService.send(any(Request.class), eq(EaiLog.class)))
+                .thenReturn(eaiLog);
+        when(web3jService.send(any(Request.class), eq(EaiUninstallFilter.class)))
+                .thenReturn(eaiUninstallFilter);
 
-        Observable<EthBlock> observable = web3j.catchUpToLatestAndSubscribeToNewBlocksObservable(
+        Observable<EaiBlock> observable = web3j.catchUpToLatestAndSubscribeToNewBlocksObservable(
                 new DefaultBlockParameterNumber(BigInteger.ZERO),
                 false);
 
         CountDownLatch transactionLatch = new CountDownLatch(expected.size());
         CountDownLatch completedLatch = new CountDownLatch(1);
 
-        List<EthBlock> results = new ArrayList<>(expected.size());
+        List<EaiBlock> results = new ArrayList<>(expected.size());
         Subscription subscription = observable.subscribe(
                 result -> {
                     results.add(result);
@@ -191,12 +191,12 @@ public class JsonRpc2_0RxTest {
         assertTrue(subscription.isUnsubscribed());
     }
 
-    private EthBlock createBlock(int number) {
-        EthBlock ethBlock = new EthBlock();
-        EthBlock.Block block = new EthBlock.Block();
+    private EaiBlock createBlock(int number) {
+        EaiBlock eaiBlock = new EaiBlock();
+        EaiBlock.Block block = new EaiBlock.Block();
         block.setNumber(Numeric.encodeQuantity(BigInteger.valueOf(number)));
 
-        ethBlock.setResult(block);
-        return ethBlock;
+        eaiBlock.setResult(block);
+        return eaiBlock;
     }
 }

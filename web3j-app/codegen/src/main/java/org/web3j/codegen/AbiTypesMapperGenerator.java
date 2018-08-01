@@ -97,7 +97,7 @@ public class AbiTypesMapperGenerator extends Generator {
         builder = generateIntTypes(builder, packageName);
 
         // TODO: Enable once Solidity supports fixed types - see
-        // https://github.com/ethereum/solidity/issues/409
+        // https://github.com/ethereumai/solidity/issues/409
         // builder = generateFixedTypes(builder, packageName);
 
         builder = generateFixedBytesTypes(builder, packageName);

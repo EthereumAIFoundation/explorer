@@ -1,7 +1,7 @@
 Application Binary Interface
 ============================
 
-The Application Binary Interface (ABI) is a data encoding scheme used in Ethereum for working with
+The Application Binary Interface (ABI) is a data encoding scheme used in EthereumAI for working with
 smart contracts. The types defined in the ABI are the same as those you encounter when writing
 :doc:`smart_contracts` with Solidity - i.e. *uint8, ..., uint256, int8, ..., int256, bool, string,*
 etc.
@@ -24,12 +24,12 @@ The native Java to ABI type mappings used within web3j are as follows:
 - String -> string and address types
 - List<> -> dynamic/static array
 
-BigInteger types have to be used for numeric types, as numeric types in Ethereum are 256 bit
+BigInteger types have to be used for numeric types, as numeric types in EthereumAI are 256 bit
 integer values.
 
 `Fixed point types <http://solidity.readthedocs.io/en/develop/abi-spec.html#types>`_
-have been defined for Ethereum, but are
-`not currently implemented in Solidity <https://github.com/ethereum/solidity/issues/409>`_,
+have been defined for EthereumAI, but are
+`not currently implemented in Solidity <https://github.com/ethereumai/solidity/issues/409>`_,
 hence web3j does not currently support them (they were provided in versions prior to
 3.x). Once available in Solidity, they will be reintroduced back into the web3j ABI module.
 
@@ -52,5 +52,5 @@ Dependencies
 This is a very lightweight module, with the only third-party dependency being
 `Bouncy Castle <https://www.bouncycastle.org/>`_ for cryptographic hashing
 (`Spongy Castle <https://rtyley.github.io/spongycastle/>`_ on Android). The hope is that other
-projects wishing to work with Ethereum's ABI on the JVM or Android will choose to make use of this
+projects wishing to work with EthereumAI's ABI on the JVM or Android will choose to make use of this
 module rather then write their own implementations.

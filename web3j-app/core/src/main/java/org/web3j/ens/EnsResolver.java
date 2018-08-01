@@ -5,8 +5,8 @@ import org.web3j.ens.contracts.generated.ENS;
 import org.web3j.ens.contracts.generated.PublicResolver;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.response.EthBlock;
-import org.web3j.protocol.core.methods.response.EthSyncing;
+import org.web3j.protocol.core.methods.response.EaiBlock;
+import org.web3j.protocol.core.methods.response.EaiSyncing;
 import org.web3j.protocol.core.methods.response.NetVersion;
 import org.web3j.tx.ClientTransactionManager;
 import org.web3j.tx.ManagedTransaction;
@@ -74,7 +74,7 @@ public class EnsResolver {
             try {
                 contractAddress = resolver.addr(nameHash).send();
             } catch (Exception e) {
-                throw new RuntimeException("Unable to execute Ethereum request", e);
+                throw new RuntimeException("Unable to execute EthereumAI request", e);
             }
 
             if (!WalletUtils.isValidAddress(contractAddress)) {
@@ -90,7 +90,7 @@ public class EnsResolver {
     /**
      * Reverse name resolution as documented in the
      * <a href="https://docs.ens.domains/en/latest/userguide.html#reverse-name-resolution">specification</a>.
-     * @param address an ethereum address, example: "0x314159265dd8dbb310642f98f50c066173c1259b"
+     * @param address an ethereumai address, example: "0x314159265dd8dbb310642f98f50c066173c1259b"
      * @return a EnsName registered for provided address
      */
     public String reverseResolve(String address) {
@@ -103,7 +103,7 @@ public class EnsResolver {
             try {
                 name = resolver.name(nameHash).send();
             } catch (Exception e) {
-                throw new RuntimeException("Unable to execute Ethereum request", e);
+                throw new RuntimeException("Unable to execute EthereumAI request", e);
             }
 
             if (!isValidEnsName(name)) {
@@ -135,13 +135,13 @@ public class EnsResolver {
     }
 
     boolean isSynced() throws Exception {
-        EthSyncing ethSyncing = web3j.ethSyncing().send();
-        if (ethSyncing.isSyncing()) {
+        EaiSyncing eaiSyncing = web3j.eaiSyncing().send();
+        if (eaiSyncing.isSyncing()) {
             return false;
         } else {
-            EthBlock ethBlock =
-                    web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, false).send();
-            long timestamp = ethBlock.getBlock().getTimestamp().longValueExact() * 1000;
+            EaiBlock eaiBlock =
+                    web3j.eaiGetBlockByNumber(DefaultBlockParameterName.LATEST, false).send();
+            long timestamp = eaiBlock.getBlock().getTimestamp().longValueExact() * 1000;
 
             return System.currentTimeMillis() - syncThreshold < timestamp;
         }

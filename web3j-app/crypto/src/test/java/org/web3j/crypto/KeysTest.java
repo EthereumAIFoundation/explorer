@@ -91,7 +91,7 @@ public class KeysTest {
 
     @Test
     public void testToChecksumAddress() {
-        // Test cases as per https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md#test-cases
+        // Test cases as per https://github.com/ethereumai/EIPs/blob/master/EIPS/eip-55.md#test-cases
 
         assertThat(Keys.toChecksumAddress("0xfb6916095ca1df60bb79ce92ce3ea74c37c5d359"),
                 is("0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"));

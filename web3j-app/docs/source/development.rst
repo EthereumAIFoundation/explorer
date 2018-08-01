@@ -4,7 +4,7 @@ Developer Guide
 Building web3j
 --------------
 
-web3j includes integration tests for running against a live Ethereum client. If you do not have a
+web3j includes integration tests for running against a live EthereumAI client. If you do not have a
 client running, you can exclude their execution as per the below instructions.
 
 To run a full build (excluding integration tests):

@@ -18,7 +18,7 @@
     }
 </style>
 <template>
-    <!-- https://etherscan.io/txsInternal -->
+    <!-- https://etheraiscan.io/txsInternal -->
     <div class=vue-txs-internal v-bind:triggerComputed=urlChange>
         <vue-bread v-bind:arr=breadcrumb title="Contract Internal Transactions"></vue-bread>
 

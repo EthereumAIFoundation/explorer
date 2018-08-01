@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import org.web3j.protocol.RequestTester;
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.methods.request.EthFilter;
+import org.web3j.protocol.core.methods.request.EaiFilter;
 import org.web3j.protocol.core.methods.request.ShhFilter;
 import org.web3j.protocol.core.methods.request.ShhPost;
 import org.web3j.protocol.core.methods.request.Transaction;
@@ -62,154 +62,154 @@ public class RequestTest extends RequestTester {
     }
 
     @Test
-    public void testEthProtocolVersion() throws Exception {
-        web3j.ethProtocolVersion().send();
+    public void testEaiProtocolVersion() throws Exception {
+        web3j.eaiProtocolVersion().send();
 
         verifyResult(
-                "{\"jsonrpc\":\"2.0\",\"method\":\"eth_protocolVersion\",\"params\":[],\"id\":1}");
+                "{\"jsonrpc\":\"2.0\",\"method\":\"eai_protocolVersion\",\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthSyncing() throws Exception {
-        web3j.ethSyncing().send();
+    public void testEaiSyncing() throws Exception {
+        web3j.eaiSyncing().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_syncing\",\"params\":[],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_syncing\",\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthCoinbase() throws Exception {
-        web3j.ethCoinbase().send();
+    public void testEaiCoinbase() throws Exception {
+        web3j.eaiCoinbase().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_coinbase\",\"params\":[],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_coinbase\",\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthMining() throws Exception {
-        web3j.ethMining().send();
+    public void testEaiMining() throws Exception {
+        web3j.eaiMining().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_mining\",\"params\":[],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_mining\",\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthHashrate() throws Exception {
-        web3j.ethHashrate().send();
+    public void testEaiHashrate() throws Exception {
+        web3j.eaiHashrate().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_hashrate\",\"params\":[],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_hashrate\",\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthGasPrice() throws Exception {
-        web3j.ethGasPrice().send();
+    public void testEaiGasPrice() throws Exception {
+        web3j.eaiGasPrice().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_gasPrice\",\"params\":[],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_gasPrice\",\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthAccounts() throws Exception {
-        web3j.ethAccounts().send();
+    public void testEaiAccounts() throws Exception {
+        web3j.eaiAccounts().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_accounts\",\"params\":[],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_accounts\",\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthBlockNumber() throws Exception {
-        web3j.ethBlockNumber().send();
+    public void testEaiBlockNumber() throws Exception {
+        web3j.eaiBlockNumber().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_blockNumber\",\"params\":[],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_blockNumber\",\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthGetBalance() throws Exception {
-        web3j.ethGetBalance("0x407d73d8a49eeb85d32cf465507dd71d507100c1",
+    public void testEaiGetBalance() throws Exception {
+        web3j.eaiGetBalance("0x407d73d8a49eeb85d32cf465507dd71d507100c1",
                 DefaultBlockParameterName.LATEST).send();
 
         verifyResult(
-                "{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBalance\","
+                "{\"jsonrpc\":\"2.0\",\"method\":\"eai_getBalance\","
                         + "\"params\":[\"0x407d73d8a49eeb85d32cf465507dd71d507100c1\",\"latest\"],"
                         + "\"id\":1}");
     }
 
     @Test
-    public void testEthGetStorageAt() throws Exception {
-        web3j.ethGetStorageAt("0x295a70b2de5e3953354a6a8344e616ed314d7251", BigInteger.ZERO,
+    public void testEaiGetStorageAt() throws Exception {
+        web3j.eaiGetStorageAt("0x295a70b2de5e3953354a6a8344e616ed314d7251", BigInteger.ZERO,
                 DefaultBlockParameterName.LATEST).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getStorageAt\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getStorageAt\","
                 + "\"params\":[\"0x295a70b2de5e3953354a6a8344e616ed314d7251\",\"0x0\",\"latest\"],"
                 + "\"id\":1}");
     }
 
     @Test
-    public void testEthGetTransactionCount() throws Exception {
-        web3j.ethGetTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1",
+    public void testEaiGetTransactionCount() throws Exception {
+        web3j.eaiGetTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1",
                 DefaultBlockParameterName.LATEST).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getTransactionCount\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getTransactionCount\","
                 + "\"params\":[\"0x407d73d8a49eeb85d32cf465507dd71d507100c1\",\"latest\"],"
                 + "\"id\":1}");
     }
 
     @Test
-    public void testEthGetBlockTransactionCountByHash() throws Exception {
-        web3j.ethGetBlockTransactionCountByHash(
+    public void testEaiGetBlockTransactionCountByHash() throws Exception {
+        web3j.eaiGetBlockTransactionCountByHash(
                 "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238").send();
 
         //CHECKSTYLE:OFF
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBlockTransactionCountByHash\",\"params\":[\"0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238\"],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getBlockTransactionCountByHash\",\"params\":[\"0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238\"],\"id\":1}");
         //CHECKSTYLE:ON
     }
 
     @Test
-    public void testEthGetBlockTransactionCountByNumber() throws Exception {
-        web3j.ethGetBlockTransactionCountByNumber(
+    public void testEaiGetBlockTransactionCountByNumber() throws Exception {
+        web3j.eaiGetBlockTransactionCountByNumber(
                 DefaultBlockParameter.valueOf(Numeric.toBigInt("0xe8"))).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBlockTransactionCountByNumber\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getBlockTransactionCountByNumber\","
                 + "\"params\":[\"0xe8\"],\"id\":1}");
     }
 
     @Test
-    public void testEthGetUncleCountByBlockHash() throws Exception {
-        web3j.ethGetUncleCountByBlockHash(
+    public void testEaiGetUncleCountByBlockHash() throws Exception {
+        web3j.eaiGetUncleCountByBlockHash(
                 "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238").send();
 
         //CHECKSTYLE:OFF
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getUncleCountByBlockHash\",\"params\":[\"0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238\"],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getUncleCountByBlockHash\",\"params\":[\"0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238\"],\"id\":1}");
         //CHECKSTYLE:ON
     }
 
     @Test
-    public void testEthGetUncleCountByBlockNumber() throws Exception {
-        web3j.ethGetUncleCountByBlockNumber(
+    public void testEaiGetUncleCountByBlockNumber() throws Exception {
+        web3j.eaiGetUncleCountByBlockNumber(
                 DefaultBlockParameter.valueOf(Numeric.toBigInt("0xe8"))).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getUncleCountByBlockNumber\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getUncleCountByBlockNumber\","
                 + "\"params\":[\"0xe8\"],\"id\":1}");
     }
 
     @Test
-    public void testEthGetCode() throws Exception {
-        web3j.ethGetCode("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
+    public void testEaiGetCode() throws Exception {
+        web3j.eaiGetCode("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
                 DefaultBlockParameter.valueOf(Numeric.toBigInt("0x2"))).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getCode\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getCode\","
                 + "\"params\":[\"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\",\"0x2\"],\"id\":1}");
     }
 
     @Test
-    public void testEthSign() throws Exception {
-        web3j.ethSign("0x8a3106a3e50576d4b6794a0e74d3bb5f8c9acaab",
+    public void testEaiSign() throws Exception {
+        web3j.eaiSign("0x8a3106a3e50576d4b6794a0e74d3bb5f8c9acaab",
                 "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470").send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_sign\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_sign\","
                 + "\"params\":[\"0x8a3106a3e50576d4b6794a0e74d3bb5f8c9acaab\","
                 + "\"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470\"],"
                 + "\"id\":1}");
     }
 
     @Test
-    public void testEthSendTransaction() throws Exception {
-        web3j.ethSendTransaction(new Transaction(
+    public void testEaiSendTransaction() throws Exception {
+        web3j.eaiSendTransaction(new Transaction(
                 "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
                 BigInteger.ONE,
                 Numeric.toBigInt("0x9184e72a000"),
@@ -220,267 +220,267 @@ public class RequestTest extends RequestTester {
                         + "970870f072445675058bb8eb970870f072445675")).send();
 
         //CHECKSTYLE:OFF
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_sendTransaction\",\"params\":[{\"from\":\"0xb60e8dd61c5d32be8058bb8eb970870f07233155\",\"to\":\"0xb60e8dd61c5d32be8058bb8eb970870f07233155\",\"gas\":\"0x76c0\",\"gasPrice\":\"0x9184e72a000\",\"value\":\"0x9184e72a\",\"data\":\"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675\",\"nonce\":\"0x1\"}],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_sendTransaction\",\"params\":[{\"from\":\"0xb60e8dd61c5d32be8058bb8eb970870f07233155\",\"to\":\"0xb60e8dd61c5d32be8058bb8eb970870f07233155\",\"gas\":\"0x76c0\",\"gasPrice\":\"0x9184e72a000\",\"value\":\"0x9184e72a\",\"data\":\"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675\",\"nonce\":\"0x1\"}],\"id\":1}");
         //CHECKSTYLE:ON
     }
 
     @Test
-    public void testEthSendRawTransaction() throws Exception {
-        web3j.ethSendRawTransaction(
+    public void testEaiSendRawTransaction() throws Exception {
+        web3j.eaiSendRawTransaction(
                 "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f"
                         + "072445675058bb8eb970870f072445675").send();
 
         //CHECKSTYLE:OFF
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_sendRawTransaction\",\"params\":[\"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675\"],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_sendRawTransaction\",\"params\":[\"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675\"],\"id\":1}");
         //CHECKSTYLE:ON
     }
 
 
     @Test
-    public void testEthCall() throws Exception {
-        web3j.ethCall(Transaction.createEthCallTransaction(
+    public void testEaiCall() throws Exception {
+        web3j.eaiCall(Transaction.createEaiCallTransaction(
                 "0xa70e8dd61c5d32be8058bb8eb970870f07233155",
                 "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
                         "0x0"),
                 DefaultBlockParameter.valueOf("latest")).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_call\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_call\","
                 + "\"params\":[{\"from\":\"0xa70e8dd61c5d32be8058bb8eb970870f07233155\","
                 + "\"to\":\"0xb60e8dd61c5d32be8058bb8eb970870f07233155\",\"data\":\"0x0\"},"
                 + "\"latest\"],\"id\":1}");
     }
 
     @Test
-    public void testEthEstimateGas() throws Exception {
-        web3j.ethEstimateGas(
-                Transaction.createEthCallTransaction(
+    public void testEaiEstimateGas() throws Exception {
+        web3j.eaiEstimateGas(
+                Transaction.createEaiCallTransaction(
                         "0xa70e8dd61c5d32be8058bb8eb970870f07233155",
                         "0x52b93c80364dc2dd4444c146d73b9836bbbb2b3f", "0x0")).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_estimateGas\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_estimateGas\","
                 + "\"params\":[{\"from\":\"0xa70e8dd61c5d32be8058bb8eb970870f07233155\","
                 + "\"to\":\"0x52b93c80364dc2dd4444c146d73b9836bbbb2b3f\",\"data\":\"0x0\"}],"
                 + "\"id\":1}");
     }
 
     @Test
-    public void testEthEstimateGasContractCreation() throws Exception {
-        web3j.ethEstimateGas(
+    public void testEaiEstimateGasContractCreation() throws Exception {
+        web3j.eaiEstimateGas(
                 Transaction.createContractTransaction(
                         "0x52b93c80364dc2dd4444c146d73b9836bbbb2b3f", BigInteger.ONE,
                         BigInteger.TEN, "")).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_estimateGas\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_estimateGas\","
                 + "\"params\":[{\"from\":\"0x52b93c80364dc2dd4444c146d73b9836bbbb2b3f\","
                 + "\"gasPrice\":\"0xa\",\"data\":\"0x\",\"nonce\":\"0x1\"}],\"id\":1}");
     }
 
     @Test
-    public void testEthGetBlockByHash() throws Exception {
-        web3j.ethGetBlockByHash(
+    public void testEaiGetBlockByHash() throws Exception {
+        web3j.eaiGetBlockByHash(
                 "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true).send();
 
         verifyResult(
-                "{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBlockByHash\",\"params\":["
+                "{\"jsonrpc\":\"2.0\",\"method\":\"eai_getBlockByHash\",\"params\":["
                         + "\"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331\""
                         + ",true],\"id\":1}");
     }
 
     @Test
-    public void testEthGetBlockByNumber() throws Exception {
-        web3j.ethGetBlockByNumber(
+    public void testEaiGetBlockByNumber() throws Exception {
+        web3j.eaiGetBlockByNumber(
                 DefaultBlockParameter.valueOf(Numeric.toBigInt("0x1b4")), true).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBlockByNumber\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getBlockByNumber\","
                 + "\"params\":[\"0x1b4\",true],\"id\":1}");
     }
 
     @Test
-    public void testEthGetTransactionByHash() throws Exception {
-        web3j.ethGetTransactionByHash(
+    public void testEaiGetTransactionByHash() throws Exception {
+        web3j.eaiGetTransactionByHash(
                 "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238").send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getTransactionByHash\",\"params\":["
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getTransactionByHash\",\"params\":["
                 + "\"0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238\"],"
                 + "\"id\":1}");
     }
 
     @Test
-    public void testEthGetTransactionByBlockHashAndIndex() throws Exception {
-        web3j.ethGetTransactionByBlockHashAndIndex(
+    public void testEaiGetTransactionByBlockHashAndIndex() throws Exception {
+        web3j.eaiGetTransactionByBlockHashAndIndex(
                 "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
                 BigInteger.ZERO).send();
 
         //CHECKSTYLE:OFF
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getTransactionByBlockHashAndIndex\",\"params\":[\"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331\",\"0x0\"],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getTransactionByBlockHashAndIndex\",\"params\":[\"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331\",\"0x0\"],\"id\":1}");
         //CHECKSTYLE:ON
     }
 
     @Test
-    public void testEthGetTransactionByBlockNumberAndIndex() throws Exception {
-        web3j.ethGetTransactionByBlockNumberAndIndex(
+    public void testEaiGetTransactionByBlockNumberAndIndex() throws Exception {
+        web3j.eaiGetTransactionByBlockNumberAndIndex(
                 DefaultBlockParameter.valueOf(Numeric.toBigInt("0x29c")), BigInteger.ZERO).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getTransactionByBlockNumberAndIndex\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getTransactionByBlockNumberAndIndex\","
                 + "\"params\":[\"0x29c\",\"0x0\"],\"id\":1}");
     }
 
     @Test
-    public void testEthGetTransactionReceipt() throws Exception {
-        web3j.ethGetTransactionReceipt(
+    public void testEaiGetTransactionReceipt() throws Exception {
+        web3j.eaiGetTransactionReceipt(
                 "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238").send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getTransactionReceipt\",\"params\":["
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getTransactionReceipt\",\"params\":["
                 + "\"0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238\"],"
                 + "\"id\":1}");
     }
 
     @Test
-    public void testEthGetUncleByBlockHashAndIndex() throws Exception {
-        web3j.ethGetUncleByBlockHashAndIndex(
+    public void testEaiGetUncleByBlockHashAndIndex() throws Exception {
+        web3j.eaiGetUncleByBlockHashAndIndex(
                 "0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b",
                 BigInteger.ZERO).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getUncleByBlockHashAndIndex\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getUncleByBlockHashAndIndex\","
                 + "\"params\":["
                 + "\"0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b\",\"0x0\"],"
                 + "\"id\":1}");
     }
 
     @Test
-    public void testEthGetUncleByBlockNumberAndIndex() throws Exception {
-        web3j.ethGetUncleByBlockNumberAndIndex(
+    public void testEaiGetUncleByBlockNumberAndIndex() throws Exception {
+        web3j.eaiGetUncleByBlockNumberAndIndex(
                 DefaultBlockParameter.valueOf(Numeric.toBigInt("0x29c")), BigInteger.ZERO).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getUncleByBlockNumberAndIndex\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getUncleByBlockNumberAndIndex\","
                 + "\"params\":[\"0x29c\",\"0x0\"],\"id\":1}");
     }
 
     @Test
-    public void testEthGetCompilers() throws Exception {
-        web3j.ethGetCompilers().send();
+    public void testEaiGetCompilers() throws Exception {
+        web3j.eaiGetCompilers().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getCompilers\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getCompilers\","
                 + "\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthCompileSolidity() throws Exception {
-        web3j.ethCompileSolidity(
+    public void testEaiCompileSolidity() throws Exception {
+        web3j.eaiCompileSolidity(
                 "contract test { function multiply(uint a) returns(uint d) {   return a * 7;   } }")
                 .send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_compileSolidity\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_compileSolidity\","
                 + "\"params\":[\"contract test { function multiply(uint a) returns(uint d) {"
                 + "   return a * 7;   } }\"],\"id\":1}");
     }
 
     @Test
-    public void testEthCompileLLL() throws Exception {
-        web3j.ethCompileLLL("(returnlll (suicide (caller)))").send();
+    public void testEaiCompileLLL() throws Exception {
+        web3j.eaiCompileLLL("(returnlll (suicide (caller)))").send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_compileLLL\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_compileLLL\","
                 + "\"params\":[\"(returnlll (suicide (caller)))\"],\"id\":1}");
     }
 
     @Test
-    public void testEthCompileSerpent() throws Exception {
-        web3j.ethCompileSerpent("/* some serpent */").send();
+    public void testEaiCompileSerpent() throws Exception {
+        web3j.eaiCompileSerpent("/* some serpent */").send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_compileSerpent\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_compileSerpent\","
                 + "\"params\":[\"/* some serpent */\"],\"id\":1}");
     }
 
     @Test
-    public void testEthNewFilter() throws Exception {
-        EthFilter ethFilter = new EthFilter()
+    public void testEaiNewFilter() throws Exception {
+        EaiFilter eaiFilter = new EaiFilter()
                 .addSingleTopic("0x12341234");
 
-        web3j.ethNewFilter(ethFilter).send();
+        web3j.eaiNewFilter(eaiFilter).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_newFilter\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_newFilter\","
                 + "\"params\":[{\"topics\":[\"0x12341234\"]}],\"id\":1}");
     }
 
     @Test
-    public void testEthNewBlockFilter() throws Exception {
-        web3j.ethNewBlockFilter().send();
+    public void testEaiNewBlockFilter() throws Exception {
+        web3j.eaiNewBlockFilter().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_newBlockFilter\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_newBlockFilter\","
                 + "\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthNewPendingTransactionFilter() throws Exception {
-        web3j.ethNewPendingTransactionFilter().send();
+    public void testEaiNewPendingTransactionFilter() throws Exception {
+        web3j.eaiNewPendingTransactionFilter().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_newPendingTransactionFilter\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_newPendingTransactionFilter\","
                 + "\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthUninstallFilter() throws Exception {
-        web3j.ethUninstallFilter(Numeric.toBigInt("0xb")).send();
+    public void testEaiUninstallFilter() throws Exception {
+        web3j.eaiUninstallFilter(Numeric.toBigInt("0xb")).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_uninstallFilter\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_uninstallFilter\","
                 + "\"params\":[\"0x0b\"],\"id\":1}");
     }
 
     @Test
-    public void testEthGetFilterChanges() throws Exception {
-        web3j.ethGetFilterChanges(Numeric.toBigInt("0x16")).send();
+    public void testEaiGetFilterChanges() throws Exception {
+        web3j.eaiGetFilterChanges(Numeric.toBigInt("0x16")).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getFilterChanges\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getFilterChanges\","
                 + "\"params\":[\"0x16\"],\"id\":1}");
     }
 
     @Test
-    public void testEthGetFilterLogs() throws Exception {
-        web3j.ethGetFilterLogs(Numeric.toBigInt("0x16")).send();
+    public void testEaiGetFilterLogs() throws Exception {
+        web3j.eaiGetFilterLogs(Numeric.toBigInt("0x16")).send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getFilterLogs\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getFilterLogs\","
                 + "\"params\":[\"0x16\"],\"id\":1}");
     }
 
     @Test
-    public void testEthGetLogs() throws Exception {
-        web3j.ethGetLogs(new EthFilter().addSingleTopic(
+    public void testEaiGetLogs() throws Exception {
+        web3j.eaiGetLogs(new EaiFilter().addSingleTopic(
                 "0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"))
                 .send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getLogs\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getLogs\","
                 + "\"params\":[{\"topics\":["
                 + "\"0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b\"]}],"
                 + "\"id\":1}");
     }
 
     @Test
-    public void testEthGetLogsWithNumericBlockRange() throws Exception {
-        web3j.ethGetLogs(new EthFilter(
+    public void testEaiGetLogsWithNumericBlockRange() throws Exception {
+        web3j.eaiGetLogs(new EaiFilter(
                 DefaultBlockParameter.valueOf(Numeric.toBigInt("0xe8")),
                 DefaultBlockParameter.valueOf("latest"), ""))
                 .send();
 
         verifyResult(
-                "{\"jsonrpc\":\"2.0\",\"method\":\"eth_getLogs\","
+                "{\"jsonrpc\":\"2.0\",\"method\":\"eai_getLogs\","
                         + "\"params\":[{\"topics\":[],\"fromBlock\":\"0xe8\","
                         + "\"toBlock\":\"latest\",\"address\":[\"\"]}],\"id\":1}");
     }
 
     @Test
-    public void testEthGetWork() throws Exception {
-        web3j.ethGetWork().send();
+    public void testEaiGetWork() throws Exception {
+        web3j.eaiGetWork().send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getWork\",\"params\":[],\"id\":1}");
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_getWork\",\"params\":[],\"id\":1}");
     }
 
     @Test
-    public void testEthSubmitWork() throws Exception {
-        web3j.ethSubmitWork("0x0000000000000001",
+    public void testEaiSubmitWork() throws Exception {
+        web3j.eaiSubmitWork("0x0000000000000001",
                 "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
                 "0xD1FE5700000000000000000000000000D1FE5700000000000000000000000000").send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_submitWork\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_submitWork\","
                 + "\"params\":[\"0x0000000000000001\","
                 + "\"0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef\","
                 + "\"0xD1FE5700000000000000000000000000D1FE5700000000000000000000000000\"],"
@@ -488,12 +488,12 @@ public class RequestTest extends RequestTester {
     }
 
     @Test
-    public void testEthSubmitHashRate() throws Exception {
-        web3j.ethSubmitHashrate(
+    public void testEaiSubmitHashRate() throws Exception {
+        web3j.eaiSubmitHashrate(
                 "0x0000000000000000000000000000000000000000000000000000000000500000",
                 "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c").send();
 
-        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_submitHashrate\","
+        verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eai_submitHashrate\","
                 + "\"params\":["
                 + "\"0x0000000000000000000000000000000000000000000000000000000000500000\","
                 + "\"0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c\"],"

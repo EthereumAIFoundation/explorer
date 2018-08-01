@@ -36,6 +36,6 @@ public class ControllerIT {
     public void getHello() throws Exception {
         ResponseEntity<String> response = template.getForEntity(base.toString(),
                 String.class);
-        assertThat(response.getBody(), equalTo("Yet another implementation of etherscan.io"));
+        assertThat(response.getBody(), equalTo("Yet another implementation of etheraiscan.io"));
     }
 }

@@ -12,7 +12,7 @@ import static org.web3j.codegen.Console.exitError;
 import static org.web3j.crypto.Keys.PRIVATE_KEY_LENGTH_IN_HEX;
 
 /**
- * Create Ethereum wallet file from a provided private key.
+ * Create EthereumAI wallet file from a provided private key.
  */
 public class KeyImporter extends WalletManager {
 

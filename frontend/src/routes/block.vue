@@ -32,7 +32,7 @@
     }
 </style>
 <template>
-    <!-- https://etherscan.io/block/4951841 -->
+    <!-- https://etheraiscan.io/block/4951841 -->
     <div class="container vue-block" v-bind:triggerComputed=urlChange>
         <vue-tab-buttons class=mt20 v-bind:arr=tabButtons v-bind:tab.sync=tab></vue-tab-buttons>
         <div class=mt20></div>

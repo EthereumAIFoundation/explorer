@@ -3,7 +3,7 @@ package org.web3j.utils;
 import java.math.BigDecimal;
 
 /**
- * Ethereum unit conversion functions.
+ * EthereumAI unit conversion functions.
  */
 public final class Convert {
     private Convert() { }
@@ -31,10 +31,10 @@ public final class Convert {
         GWEI("gwei", 9),
         SZABO("szabo", 12),
         FINNEY("finney", 15),
-        ETHER("ether", 18),
-        KETHER("kether", 21),
-        METHER("mether", 24),
-        GETHER("gether", 27);
+        ETHERAI("etherai", 18),
+        KETHERAI("ketherai", 21),
+        METHERAI("metherai", 24),
+        GETHERAI("getherai", 27);
 
         private String name;
         private BigDecimal weiFactor;

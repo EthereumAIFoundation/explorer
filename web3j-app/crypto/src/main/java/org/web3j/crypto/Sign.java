@@ -163,7 +163,7 @@ public class Sign {
     }
 
     /**
-     * Given an arbitrary piece of text and an Ethereum message signature encoded in bytes,
+     * Given an arbitrary piece of text and an EthereumAI message signature encoded in bytes,
      * returns the public key that was used to sign it. This can then be compared to the expected
      * public key to determine if the signature was correct.
      *

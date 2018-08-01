@@ -16,13 +16,13 @@ public class TestnetConfig implements IntegrationTestConfig {
 
     @Override
     public String validBlockHash() {
-        https://testnet.etherscan.io/block/1627453
+        https://testnet.etheraiscan.io/block/1627453
         return "0xd67e59db999c3bd78bd4c2ba54689dba0c372ebcad09c8b9677970f37d64ca46";
     }
 
     @Override
     public BigInteger validBlock() {
-        // https://testnet.etherscan.io/block/71032
+        // https://testnet.etheraiscan.io/block/71032
         return BigInteger.valueOf(71032);
     }
 
@@ -38,7 +38,7 @@ public class TestnetConfig implements IntegrationTestConfig {
 
     @Override
     public String validAccount() {
-        // https://testnet.etherscan.io/address/0xCB10FBad79F5e602699fFf2Bb4919Fbd87AbC8CC
+        // https://testnet.etheraiscan.io/address/0xCB10FBad79F5e602699fFf2Bb4919Fbd87AbC8CC
         return "0xcb10fbad79f5e602699fff2bb4919fbd87abc8cc";
     }
 

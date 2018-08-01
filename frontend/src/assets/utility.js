@@ -14,7 +14,7 @@ module.exports = {
     easyNumber:easyNumber,
     ua: ua,
     yyyymmdd: yyyymmdd,
-    getEthereumaiNetHost: getEthereumaiNetHost
+    getEthereumAIaiNetHost: getEthereumAIaiNetHost
 };
 
 ////////////////////////////////////////////////////////////
@@ -160,7 +160,7 @@ function timeConversionSec(millisec) {
 
 function toWei(n) {
     // "kNas", "MNas", "GNas", "TNas", "PNas", "ENas", "ZNas", "YNas"
-    var arr = ["Wei", "kWei", "MWei", "GWei", "TWei", "PWei", "Eth"],
+    var arr = ["Wei", "kWei", "MWei", "GWei", "TWei", "PWei", "Eai"],
         i, len = arr.length - 1;
 
     for (i = 0, n = +n || 0; i < len && n >= 1000; ++i, n /= 1000);
@@ -218,15 +218,15 @@ function yyyymmdd(dateNow) {
     return 10000 * d.getFullYear() + 100 * d.getMonth() + 100 + d.getDate();
 }
 
-function getEthereumaiNetHost(net){
-    var mainnet = 'https://mainnet.ethereumai.io/v1'
+function getEthereumAIaiNetHost(net){
+    var mainnet = 'https://mainnet.ethereumaiai.io/v1'
     
     if(!net){
         return mainnet
     }
 
     if (net.toLowerCase() == 'testnet') {
-        return 'https://testnet.ethereumai.io/v1'
+        return 'https://testnet.ethereumaiai.io/v1'
     }
 
     return mainnet

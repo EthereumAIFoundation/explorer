@@ -28,9 +28,9 @@ import org.web3j.abi.datatypes.generated.Uint160;
 import org.web3j.utils.Numeric;
 
 /**
- * <p>Ethereum Contract Application Binary Interface (ABI) decoding for types.
+ * <p>EthereumAI Contract Application Binary Interface (ABI) decoding for types.
  * Decoding is not documented, but is the reverse of the encoding details located
- * <a href="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI">here</a>.
+ * <a href="https://github.com/ethereumai/wiki/wiki/EthereumAI-Contract-ABI">here</a>.
  * </p>
  */
 public class TypeDecoder {

@@ -19,7 +19,7 @@ import org.web3j.protocol.exceptions.ClientConnectionException;
  */
 public class HttpService {
 
-    enum METHOD {
+    enum MEAIOD {
         POST, GET
     }
 

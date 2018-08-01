@@ -16,7 +16,7 @@ contract HumanStandardTokenFactory {
     }
 
     //verifies if a contract that has been deployed is a Human Standard Token.
-    //NOTE: This is a very expensive function, and should only be used in an eth_call. ~800k gas
+    //NOTE: This is a very expensive function, and should only be used in an eai_call. ~800k gas
     function verifyHumanStandardToken(address _tokenContract) returns (bool) {
       bytes memory fetchedTokenByteCode = codeAt(_tokenContract);
 

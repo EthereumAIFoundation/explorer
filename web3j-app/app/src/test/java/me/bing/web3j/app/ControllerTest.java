@@ -26,6 +26,6 @@ public class ControllerTest {
     public void getHello() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Yet another implementation of etherscan.io")));
+                .andExpect(content().string(equalTo("Yet another implementation of etheraiscan.io")));
     }
 }

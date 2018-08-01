@@ -1,19 +1,19 @@
 Links and Useful Resources
 ==========================
 
-- Ethereum `Homestead Documentation <https://ethereum-homestead.readthedocs.io/en/latest/>`_
-- Ethereum `Wiki <https://github.com/ethereum/wiki/wiki>`_
-- Ethereum `JSON-RPC specification <https://github.com/ethereum/wiki/wiki/JSON-RPC>`_
-- Ethereum `Yellow Paper <gavwood.com/paper.pdf>`_ and
-  `GitHub <https://github.com/ethereum/yellowpaper>`_ repository
-- `Homestead <https://ethereum-homestead.readthedocs.org/en/latest/>`_ docs
+- EthereumAI `Homestead Documentation <https://ethereumai-homestead.readthedocs.io/en/latest/>`_
+- EthereumAI `Wiki <https://github.com/ethereumai/wiki/wiki>`_
+- EthereumAI `JSON-RPC specification <https://github.com/ethereumai/wiki/wiki/JSON-RPC>`_
+- EthereumAI `Yellow Paper <gavwood.com/paper.pdf>`_ and
+  `GitHub <https://github.com/ethereumai/yellowpaper>`_ repository
+- `Homestead <https://ethereumai-homestead.readthedocs.org/en/latest/>`_ docs
 - `Solidity <http://solidity.readthedocs.io/en/develop/>`_ docs
 - `Layout of variables in storage <http://solidity.readthedocs.io/en/latest/miscellaneous.html#layout-of-state-variables-in-storage>`_
-- `Ethereum tests <https://github.com/ethereum/tests>`_ contains lots of common tests for clients
-- `Etherscan <https://etherscan.io>`_ is very useful for exploring blocks and transactions, it also
-  has a `testnet site <https://testnet.etherscan.io>`_
-- `Ethstats <https://ethstats.net/>`_ provides a useful network dashboard. There is also a
+- `EthereumAI tests <https://github.com/ethereumai/tests>`_ contains lots of common tests for clients
+- `EtherAIscan <https://etheraiscan.io>`_ is very useful for exploring blocks and transactions, it also
+  has a `testnet site <https://testnet.etheraiscan.io>`_
+- `Eaistats <https://eaistats.net/>`_ provides a useful network dashboard. There is also a
   dedicated `Parity dashboard <https://stats.parity.io/>`_,
   `Rinkeby testnet dashboard <http://rinkeby.io/>`_, and one for the
   `Kovan testnet <http://kovan-stats.parity.io/>`_.
-- `Ethereum reddit <https://www.reddit.com/r/ethereum/>`_
+- `EthereumAI reddit <https://www.reddit.com/r/ethereumai/>`_

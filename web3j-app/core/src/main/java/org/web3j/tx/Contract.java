@@ -27,7 +27,7 @@ import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.core.methods.request.Transaction;
-import org.web3j.protocol.core.methods.response.EthGetCode;
+import org.web3j.protocol.core.methods.response.EaiGetCode;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.exceptions.TransactionException;
@@ -41,7 +41,7 @@ import org.web3j.utils.Numeric;
 @SuppressWarnings("WeakerAccess")
 public abstract class Contract extends ManagedTransaction {
 
-    // https://www.reddit.com/r/ethereum/comments/5g8ia6/attention_miners_we_recommend_raising_gas_limit/
+    // https://www.reddit.com/r/ethereumai/comments/5g8ia6/attention_miners_we_recommend_raising_gas_limit/
     public static final BigInteger GAS_LIMIT = BigInteger.valueOf(4_300_000);
 
     protected final String contractBinary;
@@ -123,7 +123,7 @@ public abstract class Contract extends ManagedTransaction {
      * is in fact the contract you believe it is.
      *
      * <p>This method uses the
-     * <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getcode">eth_getCode</a> method
+     * <a href="https://github.com/ethereumai/wiki/wiki/JSON-RPC#eai_getcode">eai_getCode</a> method
      * to get the contract byte code and validates it against the byte code stored in this smart
      * contract wrapper.
      *
@@ -137,14 +137,14 @@ public abstract class Contract extends ManagedTransaction {
                             + "contract wrapper with web3j v2.2.0+");
         }
 
-        EthGetCode ethGetCode = web3j
-                .ethGetCode(contractAddress, DefaultBlockParameterName.LATEST)
+        EaiGetCode eaiGetCode = web3j
+                .eaiGetCode(contractAddress, DefaultBlockParameterName.LATEST)
                 .send();
-        if (ethGetCode.hasError()) {
+        if (eaiGetCode.hasError()) {
             return false;
         }
 
-        String code = Numeric.cleanHexPrefix(ethGetCode.getCode());
+        String code = Numeric.cleanHexPrefix(eaiGetCode.getCode());
         // There may be multiple contracts in the Solidity bytecode, hence we only check for a
         // match with a subset
         return !code.isEmpty() && contractBinary.contains(code);
@@ -180,13 +180,13 @@ public abstract class Contract extends ManagedTransaction {
     private List<Type> executeCall(
             Function function) throws IOException {
         String encodedFunction = FunctionEncoder.encode(function);
-        org.web3j.protocol.core.methods.response.EthCall ethCall = web3j.ethCall(
-                Transaction.createEthCallTransaction(
+        org.web3j.protocol.core.methods.response.EaiCall eaiCall = web3j.eaiCall(
+                Transaction.createEaiCallTransaction(
                         transactionManager.getFromAddress(), contractAddress, encodedFunction),
                 defaultBlockParameter)
                 .send();
 
-        String value = ethCall.getValue();
+        String value = eaiCall.getValue();
         return FunctionReturnDecoder.decode(value, function.getOutputParameters());
     }
 

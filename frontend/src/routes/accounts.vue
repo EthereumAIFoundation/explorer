@@ -1,5 +1,5 @@
 <template>
-    <!-- https://etherscan.io/accounts  -->
+    <!-- https://etheraiscan.io/accounts  -->
     <div class=vue-accounts>
         <vue-bread v-bind:arr=breadcrumb title="All Accounts"></vue-bread>
 

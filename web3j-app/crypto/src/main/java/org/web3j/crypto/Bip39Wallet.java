@@ -1,7 +1,7 @@
 package org.web3j.crypto;
 
 /**
- * Data class encapsulating a BIP-39 compatible Ethereum wallet.
+ * Data class encapsulating a BIP-39 compatible EthereumAI wallet.
  */
 public class Bip39Wallet {
 

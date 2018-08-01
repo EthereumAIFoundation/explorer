@@ -22,9 +22,9 @@ import static org.web3j.abi.datatypes.Type.MAX_BIT_LENGTH;
 import static org.web3j.abi.datatypes.Type.MAX_BYTE_LENGTH;
 
 /**
- * <p>Ethereum Contract Application Binary Interface (ABI) encoding for types.
+ * <p>EthereumAI Contract Application Binary Interface (ABI) encoding for types.
  * Further details are available
- * <a href="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI">here</a>.
+ * <a href="https://github.com/ethereumai/wiki/wiki/EthereumAI-Contract-ABI">here</a>.
  * </p>
  */
 public class TypeEncoder {

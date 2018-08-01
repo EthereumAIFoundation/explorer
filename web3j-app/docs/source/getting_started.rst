@@ -45,12 +45,12 @@ Android:
 Start a client
 --------------
 
-Start up an Ethereum client if you don't already have one running, such as
-`Geth <https://github.com/ethereum/go-ethereum/wiki/geth>`_:
+Start up an EthereumAI client if you don't already have one running, such as
+`Geai <https://github.com/ethereumai/go-ethereumai/wiki/geai>`_:
 
 .. code-block:: bash
 
-   $ geth --rpcapi personal,db,eth,net,web3 --rpc --rinkeby
+   $ geai --rpcapi personal,db,eai,net,web3 --rpc --rinkeby
 
 Or `Parity <https://github.com/paritytech/parity>`_:
 
@@ -66,8 +66,8 @@ Or use `Infura <https://infura.io/>`_, which provides **free clients** running i
 
 For further information refer to :doc:`infura`.
 
-Instructions on obtaining Ether to transact on the network can be found in the
-:ref:`testnet section of the docs <ethereum-testnets>`.
+Instructions on obtaining EtherAI to transact on the network can be found in the
+:ref:`testnet section of the docs <ethereumai-testnets>`.
 
 When you no longer need a `Web3j` instance you need to call the `shutdown` method to close resources used by it.
 
@@ -211,10 +211,10 @@ There are a number of other transaction and block replay Observables described i
 
 Topic filters are also supported::
 
-   EthFilter filter = new EthFilter(DefaultBlockParameterName.EARLIEST,
+   EaiFilter filter = new EaiFilter(DefaultBlockParameterName.EARLIEST,
            DefaultBlockParameterName.LATEST, <contract-address>)
                 .addSingleTopic(...)|.addOptionalTopics(..., ...)|...;
-   web3j.ethLogObservable(filter).subscribe(log -> {
+   web3j.eaiLogObservable(filter).subscribe(log -> {
        ...
    });
 
@@ -232,16 +232,16 @@ interface.
 Transactions
 ------------
 
-web3j provides support for both working with Ethereum wallet files (*recommended*) and Ethereum
+web3j provides support for both working with EthereumAI wallet files (*recommended*) and EthereumAI
 client admin commands for sending transactions.
 
-To send Ether to another party using your Ethereum wallet file::
+To send EtherAI to another party using your EthereumAI wallet file::
 
    Web3j web3 = Web3j.build(new HttpService());  // defaults to http://localhost:8545/
    Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
    TransactionReceipt transactionReceipt = Transfer.sendFunds(
            web3, credentials, "0x<address>|<ensName>",
-           BigDecimal.valueOf(1.0), Convert.Unit.ETHER)
+           BigDecimal.valueOf(1.0), Convert.Unit.ETHERAI)
            .send();
 
 Or if you wish to create your own custom transaction::
@@ -250,24 +250,24 @@ Or if you wish to create your own custom transaction::
    Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
 
    // get the next available nonce
-   EthGetTransactionCount ethGetTransactionCount = web3j.ethGetTransactionCount(
+   EaiGetTransactionCount eaiGetTransactionCount = web3j.eaiGetTransactionCount(
                 address, DefaultBlockParameterName.LATEST).send();
-   BigInteger nonce = ethGetTransactionCount.getTransactionCount();
+   BigInteger nonce = eaiGetTransactionCount.getTransactionCount();
 
    // create our transaction
-   RawTransaction rawTransaction  = RawTransaction.createEtherTransaction(
+   RawTransaction rawTransaction  = RawTransaction.createEtherAITransaction(
                 nonce, <gas price>, <gas limit>, <toAddress>, <value>);
 
    // sign & send our transaction
    byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, credentials);
    String hexValue = Numeric.toHexString(signedMessage);
-   EthSendTransaction ethSendTransaction = web3j.ethSendRawTransaction(hexValue).send();
+   EaiSendTransaction eaiSendTransaction = web3j.eaiSendRawTransaction(hexValue).send();
    // ...
 
 Although it's far simpler using web3j's `Transfer <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/tx/Transfer.java>`_
-for transacting with Ether.
+for transacting with EtherAI.
 
-Using an Ethereum client's admin commands (make sure you have your wallet in the client's
+Using an EthereumAI client's admin commands (make sure you have your wallet in the client's
 keystore)::
 
    Admin web3j = Admin.build(new HttpService());  // defaults to http://localhost:8545/
@@ -278,9 +278,9 @@ keystore)::
 
 If you want to make use of Parity's
 `Personal <https://github.com/paritytech/parity/wiki/JSONRPC-personal-module>`__ or
-`Trace <https://github.com/paritytech/parity/wiki/JSONRPC-trace-module>`_, or Geth's
-`Personal <https://github.com/ethereum/go-ethereum/wiki/Management-APIs#personal>`__ client APIs,
-you can use the *org.web3j:parity* and *org.web3j:geth* modules respectively.
+`Trace <https://github.com/paritytech/parity/wiki/JSONRPC-trace-module>`_, or Geai's
+`Personal <https://github.com/ethereumai/go-ethereumai/wiki/Management-APIs#personal>`__ client APIs,
+you can use the *org.web3j:parity* and *org.web3j:geai* modules respectively.
 
 
 Command line tools

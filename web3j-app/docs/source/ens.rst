@@ -1,14 +1,14 @@
-Ethereum Name Service
+EthereumAI Name Service
 =====================
 
-The `Ethereum Name Service (ENS) <https://ens.domains>`_ provides a human readable names to
-identify addresses on the Ethereum network. It is similar to the internet's domain name service
+The `EthereumAI Name Service (ENS) <https://ens.domains>`_ provides a human readable names to
+identify addresses on the EthereumAI network. It is similar to the internet's domain name service
 (DNS) which provides human-readable domain names which are mapped to IP addresses.
 
 In the case of ENS, the addresses are either wallet or smart contract addresses.
 
 E.g. instead of using the wallet address *0x19e03255f667bdfd50a32722df860b1eeaf4d635*, you can
-use *web3j.eth*.
+use *web3j.eai*.
 
 
 Usage in web3j
@@ -20,7 +20,7 @@ contract wrappers, when you load them, such as::
    YourSmartContract contract = YourSmartContract.load(
            "0x<address>|<ensName>", web3j, credentials, GAS_PRICE, GAS_LIMIT);
 
-Also, when performing Ether transfers, such as using the command line tools:
+Also, when performing EtherAI transfers, such as using the command line tools:
 
 .. code-block:: bash
 
@@ -39,7 +39,7 @@ is invoked to perform an ENS lookup if applicable.
 
 The resolution process is as follows:
 
-- Check to see if our Ethereum node is fully synced
+- Check to see if our EthereumAI node is fully synced
 - If not fail
 - If it is synced, check the timestamp on the most recent block it has.
     - If it's more than 3 minutes old, fail.

@@ -8,9 +8,9 @@ import java.math.BigInteger;
 public class Constant {
     private Constant() {}
 
-    public static String IpcAddress = "/home/seviezhou/.ethereumai/geai.ipc";
+    public static String IpcAddress = "/home/seviezhou/.ethereumaiai/geai.ipc";
 
-    public static String CapAddress = "https://api.coinmarketcap.com/v1/ticker/ethereum/";
+    public static String CapAddress = "https://api.coinmarketcap.com/v1/ticker/ethereumai/";
 
     public static BigInteger GWeiFactor = BigInteger.valueOf(10).pow(9);
 

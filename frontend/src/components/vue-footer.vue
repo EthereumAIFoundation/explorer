@@ -33,7 +33,7 @@
                 <div class=col-2>
                     <div>
                         <!-- <span class="fa fa-(nebulas?)" aria-hidden=true></span> -->
-                        <a target=_blank href=http://ethereumai.io>etherumai.io</a>
+                        <a target=_blank href=http://ethereumaiai.io>etheraiumai.io</a>
                     </div>
                     <div>
                         <span class="fa fa-facebook-f" aria-hidden=true></span>
@@ -52,15 +52,15 @@
                 <div class=col-3>
                     <div>
                         <span class="fa fa-github" aria-hidden=true></span>
-                        <a target=_blank href=https://github.com/EthereumAIFoundation>Github.com/EthereumAIFoundation</a>
+                        <a target=_blank href=https://github.com/EthereumAIAIFoundation>Github.com/EthereumAIAIFoundation</a>
                     </div>
                     <div>
                         <span class="fa fa-github" aria-hidden=true></span>
-                        <a target=_blank href=https://github.com/EthereumAIFoundation>Issue</a>
+                        <a target=_blank href=https://github.com/EthereumAIAIFoundation>Issue</a>
                     </div>
                     <div>
                         <span class="fa fa-github" aria-hidden=true></span>
-                        <a target=_blank href=https://github.com/EthereumAIFoundation>Commit: cec79ba</a>
+                        <a target=_blank href=https://github.com/EthereumAIAIFoundation>Commit: cec79ba</a>
                     </div>
                 </div>
             </div>

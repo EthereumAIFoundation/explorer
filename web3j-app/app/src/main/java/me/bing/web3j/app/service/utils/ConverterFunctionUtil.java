@@ -11,13 +11,13 @@ import me.bing.web3j.app.common.Constant;
 import me.bing.web3j.app.mapper.model.Account;
 import me.bing.web3j.app.mapper.model.Block;
 import me.bing.web3j.app.mapper.model.Transaction;
-import org.web3j.protocol.core.methods.response.EthBlock;
+import org.web3j.protocol.core.methods.response.EaiBlock;
 
 /**
  * @author bing on 2018/7/5
  */
 public interface ConverterFunctionUtil {
-    Function<EthBlock.Block, Block> toDbBlock
+    Function<EaiBlock.Block, Block> toDbBlock
         = blk -> new Block.Builder()
             .number(blk.getNumber().longValue())
             .hash(blk.getHash())
@@ -37,10 +37,10 @@ public interface ConverterFunctionUtil {
             .transactionsRoot(blk.getTransactionsRoot())
             .build();
 
-    Function<EthBlock.Block, List<Transaction>> toTransactions
+    Function<EaiBlock.Block, List<Transaction>> toTransactions
         = blk -> blk.getTransactions().stream()
             .map(txResult -> {
-                EthBlock.TransactionObject tx = (EthBlock.TransactionObject) txResult;
+                EaiBlock.TransactionObject tx = (EaiBlock.TransactionObject) txResult;
                 return new Transaction.Builder()
                     .hash(tx.getHash())
                     .blockHash(tx.getBlockHash())
@@ -58,13 +58,13 @@ public interface ConverterFunctionUtil {
             })
             .collect(Collectors.toList());
 
-    Function<EthBlock.Block, List<Account>> toAccounts
+    Function<EaiBlock.Block, List<Account>> toAccounts
         = blk -> {
             Set<Account> accountSet = new HashSet<>();
             accountSet.add(new Account.Builder().hash(blk.getMiner()).build());
-            for (EthBlock.TransactionResult txResult : blk.getTransactions()) {
+            for (EaiBlock.TransactionResult txResult : blk.getTransactions()) {
 
-                EthBlock.TransactionObject tx = (EthBlock.TransactionObject) txResult;
+                EaiBlock.TransactionObject tx = (EaiBlock.TransactionObject) txResult;
                 if (null != tx.getTo()) {
                     accountSet.add(new Account.Builder().hash(tx.getTo()).build());
                 }

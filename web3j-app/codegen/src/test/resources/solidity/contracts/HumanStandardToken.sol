@@ -1,7 +1,7 @@
 pragma solidity ^0.4.2;
 
 /*
-This Token Contract implements the standard token functionality (https://github.com/ethereum/EIPs/issues/20) as well as the following OPTIONAL extras intended for use by humans.
+This Token Contract implements the standard token functionality (https://github.com/ethereumai/EIPs/issues/20) as well as the following OPTIONAL extras intended for use by humans.
 
 In other words. This is intended for deployment in something like a Token Factory or Mist wallet, and then used by humans.
 Imagine coins, currencies, shares, voting weight, etc.
@@ -18,7 +18,7 @@ import "StandardToken.sol";
 contract HumanStandardToken is StandardToken {
 
     function () {
-        //if ether is sent to this address, send it back.
+        //if etherai is sent to this address, send it back.
         throw;
     }
 
@@ -31,7 +31,7 @@ contract HumanStandardToken is StandardToken {
     Some wallets/interfaces might not even bother to look at this information.
     */
     string public name;                   //fancy name: eg Simon Bucks
-    uint8 public decimals;                //How many decimals to show. ie. There could 1000 base units with 3 decimals. Meaning 0.980 SBX = 980 base units. It's like comparing 1 wei to 1 ether.
+    uint8 public decimals;                //How many decimals to show. ie. There could 1000 base units with 3 decimals. Meaning 0.980 SBX = 980 base units. It's like comparing 1 wei to 1 etherai.
     string public symbol;                 //An identifier: eg SBX
     string public version = 'H0.1';       //human 0.1 standard. Just an arbitrary versioning scheme.
 

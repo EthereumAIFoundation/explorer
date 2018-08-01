@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * <p>Recursive Length Prefix (RLP) decoder.</p>
  * <p>For the specification, refer to p16 of the <a href="http://gavwood.com/paper.pdf">
- * yellow paper</a> and <a href="https://github.com/ethereum/wiki/wiki/RLP">here</a>.</p>
+ * yellow paper</a> and <a href="https://github.com/ethereumai/wiki/wiki/RLP">here</a>.</p>
  */
 public class RlpDecoder {
 

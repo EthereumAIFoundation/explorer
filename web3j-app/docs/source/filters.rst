@@ -1,8 +1,8 @@
 Filters and Events
 ==================
 
-Filters provide notifications of certain events taking place in the Ethereum network. There are
-three classes of filter supported in Ethereum:
+Filters provide notifications of certain events taking place in the EthereumAI network. There are
+three classes of filter supported in EthereumAI:
 
 #. Block filters
 #. Pending transaction filters
@@ -14,8 +14,8 @@ transactions or blocks on the network.
 Topic filters are more flexible. These allow you to create a filter based on specific criteria
 that you provide.
 
-Unfortunately, unless you are using a WebSocket connection to Geth, working with filters via the
-JSON-RPC API is a tedious process, where you need to poll the Ethereum client in order to find out
+Unfortunately, unless you are using a WebSocket connection to Geai, working with filters via the
+JSON-RPC API is a tedious process, where you need to poll the EthereumAI client in order to find out
 if there are any updates to your filters due to the synchronous nature of HTTP and IPC requests.
 Additionally the block and transaction filters only provide the transaction or block hash, so a
 further request is required to obtain the actual transaction or block referred to by the hash.
@@ -120,7 +120,7 @@ interface.
 Topic filters and EVM events
 ----------------------------
 
-Topic filters capture details of Ethereum Virtual Machine (EVM) events taking place in the network.
+Topic filters capture details of EthereumAI Virtual Machine (EVM) events taking place in the network.
 These events are created by smart contracts and stored in the transaction log associated with a
 smart contract.
 
@@ -128,18 +128,18 @@ The `Solidity documentation <http://solidity.readthedocs.io/en/develop/contracts
 provides a good overview of EVM events.
 
 You use the
-`EthFilter <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/protocol/core/methods/request/EthFilter.java>`_
+`EaiFilter <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/protocol/core/methods/request/EaiFilter.java>`_
 type to specify the topics that you wish to apply to the filter. This can include the address of
 the smart contract you wish to apply the filter to. You can also provide specific topics to filter
 on. Where the individual topics represent indexed parameters on the smart contract::
 
-   EthFilter filter = new EthFilter(DefaultBlockParameterName.EARLIEST,
+   EaiFilter filter = new EaiFilter(DefaultBlockParameterName.EARLIEST,
            DefaultBlockParameterName.LATEST, <contract-address>)
                 [.addSingleTopic(...) | .addOptionalTopics(..., ...) | ...];
 
 This filter can then be created using a similar syntax to the block and transaction filters above::
 
-   web3j.ethLogObservable(filter).subscribe(log -> {
+   web3j.eaiLogObservable(filter).subscribe(log -> {
        ...
    });
 
@@ -163,15 +163,15 @@ For instance, the
 `blockObservable <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/protocol/rx/JsonRpc2_0Rx.java>`_ is
 itself composed of a number of separate JSON-RPC calls::
 
-   public Observable<EthBlock> blockObservable(
+   public Observable<EaiBlock> blockObservable(
            boolean fullTransactionObjects, long pollingInterval) {
-       return this.ethBlockHashObservable(pollingInterval)
+       return this.eaiBlockHashObservable(pollingInterval)
                .flatMap(blockHash ->
-                       web3j.ethGetBlockByHash(blockHash, fullTransactionObjects).observable());
+                       web3j.eaiGetBlockByHash(blockHash, fullTransactionObjects).observable());
    }
 
 Here we first create an observable that provides notifications of the block hash of each newly
-created block. We then use *flatMap* to invoke a call to *ethGetBlockByHash* to obtain the full
+created block. We then use *flatMap* to invoke a call to *eaiGetBlockByHash* to obtain the full
 block details which is what is passed to the subscriber of the observable.
 
 

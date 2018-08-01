@@ -3,8 +3,8 @@ package org.web3j.protocol.rx;
 import rx.Observable;
 
 import org.web3j.protocol.core.DefaultBlockParameter;
-import org.web3j.protocol.core.methods.request.EthFilter;
-import org.web3j.protocol.core.methods.response.EthBlock;
+import org.web3j.protocol.core.methods.request.EaiFilter;
+import org.web3j.protocol.core.methods.response.EaiBlock;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.Transaction;
 
@@ -16,10 +16,10 @@ public interface Web3jRx {
     /**
      * Create an observable to filter for specific log events on the blockchain.
      *
-     * @param ethFilter filter criteria
+     * @param eaiFilter filter criteria
      * @return Observable that emits all Log events matching the filter
      */
-    Observable<Log> ethLogObservable(EthFilter ethFilter);
+    Observable<Log> eaiLogObservable(EaiFilter eaiFilter);
 
     /**
      * Create an Observable to emit block hashes.
@@ -27,7 +27,7 @@ public interface Web3jRx {
      * @return Observable that emits all new block hashes as new blocks are created on the
      *         blockchain
      */
-    Observable<String> ethBlockHashObservable();
+    Observable<String> eaiBlockHashObservable();
 
     /**
      * Create an Observable to emit pending transactions, i.e. those transactions that have been
@@ -35,7 +35,7 @@ public interface Web3jRx {
      *
      * @return Observable to emit pending transaction hashes.
      */
-    Observable<String> ethPendingTransactionHashObservable();
+    Observable<String> eaiPendingTransactionHashObservable();
 
     /**
      * Create an Observable to emit all new transactions as they are confirmed on the blockchain.
@@ -60,7 +60,7 @@ public interface Web3jRx {
      *                              transaction hashes
      * @return Observable that emits all new blocks as they are added to the blockchain
      */
-    Observable<EthBlock> blockObservable(boolean fullTransactionObjects);
+    Observable<EaiBlock> blockObservable(boolean fullTransactionObjects);
 
     /**
      * Create an Observable that emits all blocks from the blockchain contained within the
@@ -72,7 +72,7 @@ public interface Web3jRx {
      *                               transaction hashes
      * @return Observable to emit these blocks
      */
-    Observable<EthBlock> replayBlocksObservable(
+    Observable<EaiBlock> replayBlocksObservable(
             DefaultBlockParameter startBlock, DefaultBlockParameter endBlock,
             boolean fullTransactionObjects);
 
@@ -88,7 +88,7 @@ public interface Web3jRx {
      *                  in descending order
      * @return Observable to emit these blocks
      */
-    Observable<EthBlock> replayBlocksObservable(
+    Observable<EaiBlock> replayBlocksObservable(
             DefaultBlockParameter startBlock, DefaultBlockParameter endBlock,
             boolean fullTransactionObjects, boolean ascending);
 
@@ -113,14 +113,14 @@ public interface Web3jRx {
      *
      * @param startBlock the block number we wish to request from
      * @param fullTransactionObjects if we require full {@link Transaction} objects to be provided
-     *                              in the {@link EthBlock} responses
+     *                              in the {@link EaiBlock} responses
      * @param onCompleteObservable a subsequent Observable that we wish to run once we are caught
      *                             up with the latest block
      * @return Observable to emit all requested blocks
      */
-    Observable<EthBlock> catchUpToLatestBlockObservable(
+    Observable<EaiBlock> catchUpToLatestBlockObservable(
             DefaultBlockParameter startBlock, boolean fullTransactionObjects,
-            Observable<EthBlock> onCompleteObservable);
+            Observable<EaiBlock> onCompleteObservable);
 
     /**
      * Creates an Observable that emits all blocks from the requested block number to the most
@@ -128,10 +128,10 @@ public interface Web3jRx {
      *
      * @param startBlock the block number we wish to request from
      * @param fullTransactionObjects if we require full {@link Transaction} objects to be provided
-     *                               in the {@link EthBlock} responses
+     *                               in the {@link EaiBlock} responses
      * @return Observable to emit all requested blocks
      */
-    Observable<EthBlock> catchUpToLatestBlockObservable(
+    Observable<EaiBlock> catchUpToLatestBlockObservable(
             DefaultBlockParameter startBlock, boolean fullTransactionObjects);
 
     /**
@@ -151,10 +151,10 @@ public interface Web3jRx {
      *
      * @param startBlock the block number we wish to request from
      * @param fullTransactionObjects if we require full {@link Transaction} objects to be provided
-     *                               in the {@link EthBlock} responses
+     *                               in the {@link EaiBlock} responses
      * @return Observable to emit all requested blocks and future
      */
-    Observable<EthBlock> catchUpToLatestAndSubscribeToNewBlocksObservable(
+    Observable<EaiBlock> catchUpToLatestAndSubscribeToNewBlocksObservable(
             DefaultBlockParameter startBlock, boolean fullTransactionObjects);
 
     /**

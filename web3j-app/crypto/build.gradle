@@ -1,5 +1,5 @@
 
-description 'web3j Ethereum crypto library'
+description 'web3j EthereumAI crypto library'
 
 dependencies {
     compile project(':rlp'),

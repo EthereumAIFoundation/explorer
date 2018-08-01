@@ -50,14 +50,14 @@ public interface Parity extends Admin, Trace {
     
     Request<?, ParityDefaultAddressResponse> parityGetNewDappsDefaultAddress();
     
-    Request<?, ParityAddressesResponse> parityImportGethAccounts(ArrayList<String> gethAddresses);
+    Request<?, ParityAddressesResponse> parityImportGeaiAccounts(ArrayList<String> geaiAddresses);
     
     Request<?, BooleanResponse> parityKillAccount(String accountId, String password);
 
     Request<?, ParityAddressesResponse> parityListAccounts(
             BigInteger quantity, String accountId, DefaultBlockParameter blockParameter);
 
-    Request<?, ParityAddressesResponse> parityListGethAccounts();
+    Request<?, ParityAddressesResponse> parityListGeaiAccounts();
     
     Request<?, ParityListRecentDapps> parityListRecentDapps();
     

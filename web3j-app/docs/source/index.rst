@@ -4,34 +4,34 @@ web3j
 =====
 
 web3j is a highly modular, reactive, type safe Java and Android library for working with
-Smart Contracts and integrating with clients (nodes) on the Ethereum network:
+Smart Contracts and integrating with clients (nodes) on the EthereumAI network:
 
 .. image:: /images/web3j_network.png
 
-This allows you to work with the `Ethereum <https://www.ethereum.org/>`_ blockchain, without the
+This allows you to work with the `EthereumAI <https://www.ethereumai.org/>`_ blockchain, without the
 additional overhead of having to write your own integration code for the platform.
 
 The `Java and the Blockchain <https://www.youtube.com/watch?v=ea3miXs_P6Y>`_ talk provides an
-overview of blockchain, Ethereum and web3j.
+overview of blockchain, EthereumAI and web3j.
 
 
 Features
 ========
 
-- Complete implementation of Ethereum's `JSON-RPC <https://github.com/ethereum/wiki/wiki/JSON-RPC>`_
+- Complete implementation of EthereumAI's `JSON-RPC <https://github.com/ethereumai/wiki/wiki/JSON-RPC>`_
   client API over HTTP and IPC
-- Ethereum wallet support
+- EthereumAI wallet support
 - Auto-generation of Java smart contract wrappers to create, deploy, transact with and call smart
   contracts from native Java code
   (`Solidity <http://solidity.readthedocs.io/en/latest/using-the-compiler.html#using-the-commandline-compiler>`_
   and
   `Truffle <https://github.com/trufflesuite/truffle-contract-schema>`_ definition formats supported)
 - Reactive-functional API for working with filters
-- `Ethereum Name Service (ENS) <https://ens.domains/>`_ support
+- `EthereumAI Name Service (ENS) <https://ens.domains/>`_ support
 - Support for Parity's
-  `Personal <https://github.com/paritytech/parity/wiki/JSONRPC-personal-module>`__, and Geth's
-  `Personal <https://github.com/ethereum/go-ethereum/wiki/Management-APIs#personal>`__ client APIs
-- Support for `Infura <https://infura.io/>`_, so you don't have to run an Ethereum client yourself
+  `Personal <https://github.com/paritytech/parity/wiki/JSONRPC-personal-module>`__, and Geai's
+  `Personal <https://github.com/ethereumai/go-ethereumai/wiki/Management-APIs#personal>`__ client APIs
+- Support for `Infura <https://infura.io/>`_, so you don't have to run an EthereumAI client yourself
 - Comprehensive integration tests demonstrating a number of the above scenarios
 - Command line tools
 - Android compatible
@@ -62,7 +62,7 @@ Donate
 You can help fund the development of web3j by donating to the following wallet addresses:
 
 +----------+--------------------------------------------+
-| Ethereum | 0x2dfBf35bb7c3c0A466A6C48BEBf3eF7576d3C420 |
+| EthereumAI | 0x2dfBf35bb7c3c0A466A6C48BEBf3eF7576d3C420 |
 +----------+--------------------------------------------+
 | Bitcoin  | 1DfUeRWUy4VjekPmmZUNqCjcJBMwsyp61G         |
 +----------+--------------------------------------------+

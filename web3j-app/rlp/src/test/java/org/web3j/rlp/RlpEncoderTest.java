@@ -10,9 +10,9 @@ import static org.junit.Assert.assertThat;
 public class RlpEncoderTest {
 
     /**
-     * Examples taken from https://github.com/ethereum/wiki/wiki/RLP#examples.
+     * Examples taken from https://github.com/ethereumai/wiki/wiki/RLP#examples.
      *
-     * <p>For further examples see https://github.com/ethereum/tests/tree/develop/RLPTests.
+     * <p>For further examples see https://github.com/ethereumai/tests/tree/develop/RLPTests.
      */
     @Test
     public void testEncode() {

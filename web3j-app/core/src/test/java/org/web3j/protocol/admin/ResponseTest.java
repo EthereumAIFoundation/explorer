@@ -17,7 +17,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Parity/Geth Shared Protocol Response tests.
+ * Parity/Geai Shared Protocol Response tests.
  */
 public class ResponseTest extends ResponseTester {
 

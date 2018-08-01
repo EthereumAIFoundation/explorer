@@ -10,9 +10,9 @@ import org.web3j.crypto.Hash;
 import org.web3j.utils.Numeric;
 
 /**
- * <p>Ethereum filter encoding.
+ * <p>EthereumAI filter encoding.
  * Further limited details are available
- * <a href="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#events">here</a>.
+ * <a href="https://github.com/ethereumai/wiki/wiki/EthereumAI-Contract-ABI#events">here</a>.
  * </p>
  */
 public class EventEncoder {

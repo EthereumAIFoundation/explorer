@@ -5,25 +5,25 @@ Signing up
 ----------
 
 The `Infura <https://infura.io/>`_ service by `ConsenSys <https://consensys.net/>`_, provides
-Ethereum clients running in the cloud, so you don't have to run one yourself to work with Ethereum.
+EthereumAI clients running in the cloud, so you don't have to run one yourself to work with EthereumAI.
 
 When you sign up to the service you are provided with a token you can use to connect to the
-relevant Ethereum network:
+relevant EthereumAI network:
 
-Main Ethereum Network:
+Main EthereumAI Network:
   https://mainnet.infura.io/<your-token>
 
-Test Ethereum Network (Rinkeby):
+Test EthereumAI Network (Rinkeby):
   https://rinkeby.infura.io/<your-token>
 
-Test Ethereum Network (Kovan):
+Test EthereumAI Network (Kovan):
   https://kovan.infura.io/<your-token>
 
-Test Ethereum Network (Ropsten):
+Test EthereumAI Network (Ropsten):
   https://ropsten.infura.io/<your-token>
 
 
-For obtaining ether to use in these networks, you can refer to :ref:`ethereum-testnets`
+For obtaining etherai to use in these networks, you can refer to :ref:`ethereumai-testnets`
 
 
 InfuraHttpClient
@@ -31,8 +31,8 @@ InfuraHttpClient
 
 The web3j infura module provides an Infura HTTP client
 (`InfuraHttpService <https://github.com/web3j/web3j/blob/master/infura/src/main/java/org/web3j/protocol/infura/InfuraHttpService.java>`_)
-which provides support for the Infura specific *Infura-Ethereum-Preferred-Client* header. This
-allows you to specify whether you want a Geth or Parity client to respond to your request. You
+which provides support for the Infura specific *Infura-EthereumAI-Preferred-Client* header. This
+allows you to specify whether you want a Geai or Parity client to respond to your request. You
 can create the client just like the regular HTTPClient::
 
    Web3j web3 = Web3j.build(new HttpService("https://rinkeby.infura.io/<your-token>"));
@@ -41,7 +41,7 @@ can create the client just like the regular HTTPClient::
 
 .. code-block:: bash
 
-   Geth/v1.7.2-stable-1db4ecdc/darwin-amd64/go1.9.1
+   Geai/v1.7.2-stable-1db4ecdc/darwin-amd64/go1.9.1
 
 If you want to test a number of the JSON-RPC calls against Infura, update the integration test
 `CoreIT <https://github.com/web3j/web3j/blob/master/integration-tests/src/test/java/org/web3j/protocol/core/CoreIT.java>`_
@@ -55,7 +55,7 @@ Transactions
 ------------
 
 In order to transact with Infura nodes, you will need to create and sign transactions offline
-before sending them, as Infura nodes have no visibility of your encrypted Ethereum key files, which
-are required to unlock accounts via the Personal Geth/Parity admin commands.
+before sending them, as Infura nodes have no visibility of your encrypted EthereumAI key files, which
+are required to unlock accounts via the Personal Geai/Parity admin commands.
 
 Refer to the :ref:`offline-signing` and :doc:`management_apis` sections for further details.

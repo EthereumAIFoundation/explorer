@@ -7,8 +7,8 @@ import java.util.Optional;
 
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.Request;
-import org.web3j.protocol.core.methods.response.EthFilter;
-import org.web3j.protocol.core.methods.response.EthLog;
+import org.web3j.protocol.core.methods.response.EaiFilter;
+import org.web3j.protocol.core.methods.response.EaiLog;
 import org.web3j.protocol.core.methods.response.Log;
 
 /**
@@ -16,26 +16,26 @@ import org.web3j.protocol.core.methods.response.Log;
  */
 public class LogFilter extends Filter<Log> {
 
-    private final org.web3j.protocol.core.methods.request.EthFilter ethFilter;
+    private final org.web3j.protocol.core.methods.request.EaiFilter eaiFilter;
 
     public LogFilter(
             Web3j web3j, Callback<Log> callback,
-            org.web3j.protocol.core.methods.request.EthFilter ethFilter) {
+            org.web3j.protocol.core.methods.request.EaiFilter eaiFilter) {
         super(web3j, callback);
-        this.ethFilter = ethFilter;
+        this.eaiFilter = eaiFilter;
     }
 
 
     @Override
-    EthFilter sendRequest() throws IOException {
-        return web3j.ethNewFilter(ethFilter).send();
+    EaiFilter sendRequest() throws IOException {
+        return web3j.eaiNewFilter(eaiFilter).send();
     }
 
     @Override
-    void process(List<EthLog.LogResult> logResults) {
-        for (EthLog.LogResult logResult : logResults) {
-            if (logResult instanceof EthLog.LogObject) {
-                Log log = ((EthLog.LogObject) logResult).get();
+    void process(List<EaiLog.LogResult> logResults) {
+        for (EaiLog.LogResult logResult : logResults) {
+            if (logResult instanceof EaiLog.LogObject) {
+                Log log = ((EaiLog.LogObject) logResult).get();
                 callback.onEvent(log);
             } else {
                 throw new FilterException(
@@ -45,7 +45,7 @@ public class LogFilter extends Filter<Log> {
     }
 
     @Override
-    protected Optional<Request<?, EthLog>> getFilterLogs(BigInteger filterId) {
-        return Optional.of(web3j.ethGetFilterLogs(filterId));
+    protected Optional<Request<?, EaiLog>> getFilterLogs(BigInteger filterId) {
+        return Optional.of(web3j.eaiGetFilterLogs(filterId));
     }
 }

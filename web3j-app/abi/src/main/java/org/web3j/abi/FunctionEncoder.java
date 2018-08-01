@@ -12,9 +12,9 @@ import org.web3j.crypto.Hash;
 import org.web3j.utils.Numeric;
 
 /**
- * <p>Ethereum Contract Application Binary Interface (ABI) encoding for functions.
+ * <p>EthereumAI Contract Application Binary Interface (ABI) encoding for functions.
  * Further details are available
- * <a href="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI">here</a>.
+ * <a href="https://github.com/ethereumai/wiki/wiki/EthereumAI-Contract-ABI">here</a>.
  * </p>
  */
 public class FunctionEncoder {

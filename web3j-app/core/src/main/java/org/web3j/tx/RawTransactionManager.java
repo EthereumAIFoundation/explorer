@@ -8,17 +8,17 @@ import org.web3j.crypto.RawTransaction;
 import org.web3j.crypto.TransactionEncoder;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.response.EthGetTransactionCount;
-import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.core.methods.response.EaiGetTransactionCount;
+import org.web3j.protocol.core.methods.response.EaiSendTransaction;
 import org.web3j.tx.response.TransactionReceiptProcessor;
 import org.web3j.utils.Numeric;
 
 /**
- * TransactionManager implementation using Ethereum wallet file to create and sign transactions
+ * TransactionManager implementation using EthereumAI wallet file to create and sign transactions
  * locally.
  *
  * <p>This transaction manager provides support for specifying the chain id for transactions as per
- * <a href="https://github.com/ethereum/EIPs/issues/155">EIP155</a>.
+ * <a href="https://github.com/ethereumai/EIPs/issues/155">EIP155</a>.
  */
 public class RawTransactionManager extends TransactionManager {
 
@@ -67,14 +67,14 @@ public class RawTransactionManager extends TransactionManager {
     }
 
     protected BigInteger getNonce() throws IOException {
-        EthGetTransactionCount ethGetTransactionCount = web3j.ethGetTransactionCount(
+        EaiGetTransactionCount eaiGetTransactionCount = web3j.eaiGetTransactionCount(
                 credentials.getAddress(), DefaultBlockParameterName.PENDING).send();
 
-        return ethGetTransactionCount.getTransactionCount();
+        return eaiGetTransactionCount.getTransactionCount();
     }
 
     @Override
-    public EthSendTransaction sendTransaction(
+    public EaiSendTransaction sendTransaction(
             BigInteger gasPrice, BigInteger gasLimit, String to,
             String data, BigInteger value) throws IOException {
 
@@ -91,7 +91,7 @@ public class RawTransactionManager extends TransactionManager {
         return signAndSend(rawTransaction);
     }
 
-    public EthSendTransaction signAndSend(RawTransaction rawTransaction)
+    public EaiSendTransaction signAndSend(RawTransaction rawTransaction)
             throws IOException {
 
         byte[] signedMessage;
@@ -104,6 +104,6 @@ public class RawTransactionManager extends TransactionManager {
 
         String hexValue = Numeric.toHexString(signedMessage);
 
-        return web3j.ethSendRawTransaction(hexValue).send();
+        return web3j.eaiSendRawTransaction(hexValue).send();
     }
 }

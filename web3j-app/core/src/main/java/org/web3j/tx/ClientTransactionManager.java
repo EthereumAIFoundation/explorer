@@ -5,11 +5,11 @@ import java.math.BigInteger;
 
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.request.Transaction;
-import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.core.methods.response.EaiSendTransaction;
 import org.web3j.tx.response.TransactionReceiptProcessor;
 
 /**
- * TransactionManager implementation for using an Ethereum node to transact.
+ * TransactionManager implementation for using an EthereumAI node to transact.
  *
  * <p><b>Note</b>: accounts must be unlocked on the node for transactions to be successful.
  */
@@ -37,7 +37,7 @@ public class ClientTransactionManager extends TransactionManager {
     }
 
     @Override
-    public EthSendTransaction sendTransaction(
+    public EaiSendTransaction sendTransaction(
             BigInteger gasPrice, BigInteger gasLimit, String to,
             String data, BigInteger value)
             throws IOException {
@@ -45,7 +45,7 @@ public class ClientTransactionManager extends TransactionManager {
         Transaction transaction = new Transaction(
                 getFromAddress(), null, gasPrice, gasLimit, to, value, data);
 
-        return web3j.ethSendTransaction(transaction)
+        return web3j.eaiSendTransaction(transaction)
                 .send();
     }
 }

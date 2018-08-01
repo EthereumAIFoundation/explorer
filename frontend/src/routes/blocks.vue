@@ -1,5 +1,5 @@
 <template>
-    <!-- https://etherscan.io/blocks -->
+    <!-- https://etheraiscan.io/blocks -->
     <div class=vue-blocks>
         <vue-bread v-bind:arr=breadcrumb title="Blocks"></vue-bread>
 

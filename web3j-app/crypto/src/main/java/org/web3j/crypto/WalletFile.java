@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
- * Ethereum wallet file.
+ * EthereumAI wallet file.
  */
 public class WalletFile {
     private String address;
@@ -157,7 +157,7 @@ public class WalletFile {
                 @JsonSubTypes.Type(value = Aes128CtrKdfParams.class, name = Wallet.AES_128_CTR),
                 @JsonSubTypes.Type(value = ScryptKdfParams.class, name = Wallet.SCRYPT)
         })
-        // To support my Ether Wallet keys uncomment this annotation & comment out the above
+        // To support my EtherAI Wallet keys uncomment this annotation & comment out the above
         //  @JsonDeserialize(using = KdfParamsDeserialiser.class)
         // Also add the following to the ObjectMapperFactory
         // objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
@@ -434,8 +434,8 @@ public class WalletFile {
         }     
     }
 
-    // If we need to work with MyEtherWallet we'll need to use this deserializer, see the
-    // following issue https://github.com/kvhnuke/etherwallet/issues/269
+    // If we need to work with MyEtherAIWallet we'll need to use this deserializer, see the
+    // following issue https://github.com/kvhnuke/etheraiwallet/issues/269
     static class KdfParamsDeserialiser extends JsonDeserializer<KdfParams> {
 
         @Override

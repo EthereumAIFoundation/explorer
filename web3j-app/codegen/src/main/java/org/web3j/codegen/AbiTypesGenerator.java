@@ -45,7 +45,7 @@ public class AbiTypesGenerator extends Generator {
         generateIntTypes(Uint.class, destinationDir);
 
         // TODO: Enable once Solidity supports fixed types - see
-        // https://github.com/ethereum/solidity/issues/409
+        // https://github.com/ethereumai/solidity/issues/409
         // generateFixedTypes(Fixed.class, destinationDir);
         // generateFixedTypes(Ufixed.class, destinationDir);
 

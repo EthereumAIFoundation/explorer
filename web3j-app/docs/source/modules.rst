@@ -9,7 +9,7 @@ In dependency order, they are as follows:
 * utils -  Minimal set of utility classes
 * rlp - Recursive Length Prefix (RLP) encoders
 * abi - Application Binary Interface (ABI) encoders
-* crypto - cryptographic library for for transaction signing and key/wallet management in Ethereum
+* crypto - cryptographic library for for transaction signing and key/wallet management in EthereumAI
 * tuples - Simple tuples library
 * core - Much like the previous web3j core artifact without the code generators
 * codegen - code generators
@@ -17,13 +17,13 @@ In dependency order, they are as follows:
 
 The below modules only depend on the core module.
 
-* geth - Geth specific JSON-RPC module
+* geai - Geai specific JSON-RPC module
 * parity - Parity specific JSON-RPC module
 * infura - Infura specific HTTP header support
 
 For most use cases (interacting with the network and smart contracts) the *core* module should be
 all you need. The dependencies of the core module are very granular and only likely to be of use
-if your project is focussed on a very specific interaction with the Ethereum network (such as
+if your project is focussed on a very specific interaction with the EthereumAI network (such as
 ABI/RLP encoding, transaction signing but not submission, etc).
 
 All modules are published to both Maven Central and Bintray, with the published artifact names

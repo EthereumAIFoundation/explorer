@@ -6,7 +6,7 @@ deploy in something like Mist, see HumanStandardToken.sol.
 (This implements ONLY the standard functions and NOTHING else.
 If you deploy this, you won't have anything useful.)
 
-Implements ERC 20 Token standard: https://github.com/ethereum/EIPs/issues/20.
+Implements ERC 20 Token standard: https://github.com/ethereumai/EIPs/issues/20.
 */
 
 import "Token.sol";

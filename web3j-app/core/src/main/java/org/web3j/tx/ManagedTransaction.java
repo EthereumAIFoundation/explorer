@@ -5,7 +5,7 @@ import java.math.BigInteger;
 
 import org.web3j.ens.EnsResolver;
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.methods.response.EthGasPrice;
+import org.web3j.protocol.core.methods.response.EaiGasPrice;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.exceptions.TransactionException;
 
@@ -58,7 +58,7 @@ public abstract class ManagedTransaction {
     }
 
     /**
-     * Return the current gas price from the ethereum node.
+     * Return the current gas price from the ethereumai node.
      * <p>
      *     Note: this method was previously called {@code getGasPrice} but was renamed to
      *     distinguish it when a bean accessor method on {@link Contract} was added with that name.
@@ -68,12 +68,12 @@ public abstract class ManagedTransaction {
      *     instead, if you want the dynamic behavior.
      * </p>
      * @return the current gas price, determined dynamically at invocation
-     * @throws IOException if there's a problem communicating with the ethereum node
+     * @throws IOException if there's a problem communicating with the ethereumai node
      */
     public BigInteger requestCurrentGasPrice() throws IOException {
-        EthGasPrice ethGasPrice = web3j.ethGasPrice().send();
+        EaiGasPrice eaiGasPrice = web3j.eaiGasPrice().send();
 
-        return ethGasPrice.getGasPrice();
+        return eaiGasPrice.getGasPrice();
     }
 
     protected TransactionReceipt send(

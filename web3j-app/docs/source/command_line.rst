@@ -8,7 +8,7 @@ These tools provide:
 
 - Wallet creation
 - Wallet password management
-- Ether transfer from one wallet to another
+- EtherAI transfer from one wallet to another
 - Generation of Solidity smart contract wrappers
 
 The command line tools can be obtained as a zipfile/tarball from the
@@ -49,7 +49,7 @@ To run via the zipfile, simply extract the zipfile and run the binary:
 Wallet tools
 ------------
 
-To generate a new Ethereum wallet:
+To generate a new EthereumAI wallet:
 
 .. code-block:: bash
 
@@ -61,16 +61,16 @@ To update the password for an existing wallet:
 
    $ web3j wallet update <walletfile>
 
-To send Ether to another address:
+To send EtherAI to another address:
 
 .. code-block:: bash
 
    $ web3j wallet send <walletfile> 0x<address>|<ensName>
 
-When sending Ether to another address you will be asked a series of questions before the
+When sending EtherAI to another address you will be asked a series of questions before the
 transaction takes place. See the below for a full example
 
-The following example demonstrates using web3j to send Ether to another wallet.
+The following example demonstrates using web3j to send EtherAI to another wallet.
 
 .. code-block:: bash
 
@@ -87,11 +87,11 @@ The following example demonstrates using web3j to send Ether to another wallet.
 
    Please enter your existing wallet file password:
    Wallet for address 0x19e03255f667bdfd50a32722df860b1eeaf4d635 loaded
-   Please confirm address of running Ethereum client you wish to send the transfer request to [http://localhost:8545/]:
-   Connected successfully to client: Geth/v1.4.18-stable-c72f5459/darwin/go1.7.3
+   Please confirm address of running EthereumAI client you wish to send the transfer request to [http://localhost:8545/]:
+   Connected successfully to client: Geai/v1.4.18-stable-c72f5459/darwin/go1.7.3
    What amound would you like to transfer (please enter a numeric value): 0.000001
-   Please specify the unit (ether, wei, ...) [ether]:
-   Please confim that you wish to transfer 0.000001 ether (1000000000000 wei) to address 0x9c98e381edc5fe1ac514935f3cc3edaa764cf004
+   Please specify the unit (etherai, wei, ...) [etherai]:
+   Please confim that you wish to transfer 0.000001 etherai (1000000000000 wei) to address 0x9c98e381edc5fe1ac514935f3cc3edaa764cf004
    Please type 'yes' to proceed: yes
    Commencing transfer (this may take a few minutes)...................................................................................................................$
 

@@ -121,7 +121,7 @@ html_theme_options = {
     'github_banner': 'true',
     'travis_button': 'true',
     'codecov_button': 'true',
-    'description': 'Lightweight Java library for integration with Ethereum clients',
+    'description': 'Lightweight Java library for integration with EthereumAI clients',
     'canonical_url': 'https://web3j.readthedocs.io/',
     'analytics_id': 'UA-85710619-1',
 }
@@ -286,7 +286,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'web3j', u'web3j Documentation',
-     author, 'web3j', 'Lightweight Java library for integration with Ethereum clients.',
+     author, 'web3j', 'Lightweight Java library for integration with EthereumAI clients.',
      'Miscellaneous'),
 ]
 

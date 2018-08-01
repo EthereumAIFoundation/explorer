@@ -16,9 +16,9 @@ import org.web3j.protocol.Web3j;
 
 import org.web3j.protocol.core.Request;
 import org.web3j.protocol.core.Response;
-import org.web3j.protocol.core.methods.response.EthFilter;
-import org.web3j.protocol.core.methods.response.EthLog;
-import org.web3j.protocol.core.methods.response.EthUninstallFilter;
+import org.web3j.protocol.core.methods.response.EaiFilter;
+import org.web3j.protocol.core.methods.response.EaiLog;
+import org.web3j.protocol.core.methods.response.EaiUninstallFilter;
 
 
 /**
@@ -42,22 +42,22 @@ public abstract class Filter<T> {
 
     public void run(ScheduledExecutorService scheduledExecutorService, long blockTime) {
         try {
-            EthFilter ethFilter = sendRequest();
-            if (ethFilter.hasError()) {
-                throwException(ethFilter.getError());
+            EaiFilter eaiFilter = sendRequest();
+            if (eaiFilter.hasError()) {
+                throwException(eaiFilter.getError());
             }
 
-            filterId = ethFilter.getFilterId();
+            filterId = eaiFilter.getFilterId();
             // this runs in the caller thread as if any exceptions are encountered, we shouldn't
             // proceed with creating the scheduled task below
             getInitialFilterLogs();
 
             /*
             We want the filter to be resilient against client issues. On numerous occasions
-            users have reported socket timeout exceptions when connected over HTTP to Geth and
+            users have reported socket timeout exceptions when connected over HTTP to Geai and
             Parity clients. For examples, refer to
             https://github.com/web3j/web3j/issues/144 and
-            https://github.com/ethereum/go-ethereum/issues/15243.
+            https://github.com/ethereumai/go-ethereumai/issues/15243.
 
             Hence we consume errors and log them as errors, allowing our polling for changes to
             resume. The downside of this approach is that users will not be notified of
@@ -72,7 +72,7 @@ public abstract class Filter<T> {
             schedule = scheduledExecutorService.scheduleAtFixedRate(
                     () -> {
                         try {
-                            this.pollFilter(ethFilter);
+                            this.pollFilter(eaiFilter);
                         } catch (Throwable e) {
                             // All exceptions must be caught, otherwise our job terminates without
                             // any notification
@@ -87,49 +87,49 @@ public abstract class Filter<T> {
 
     private void getInitialFilterLogs() {
         try {
-            Optional<Request<?, EthLog>> maybeRequest = this.getFilterLogs(this.filterId);
-            EthLog ethLog = null;
+            Optional<Request<?, EaiLog>> maybeRequest = this.getFilterLogs(this.filterId);
+            EaiLog eaiLog = null;
             if (maybeRequest.isPresent()) {
-                ethLog = maybeRequest.get().send();
+                eaiLog = maybeRequest.get().send();
             } else {
-                ethLog = new EthLog();
-                ethLog.setResult(Collections.emptyList());
+                eaiLog = new EaiLog();
+                eaiLog.setResult(Collections.emptyList());
             }
-            process(ethLog.getLogs());
+            process(eaiLog.getLogs());
 
         } catch (IOException e) {
             throwException(e);
         }
     }
 
-    private void pollFilter(EthFilter ethFilter) {
-        EthLog ethLog = null;
+    private void pollFilter(EaiFilter eaiFilter) {
+        EaiLog eaiLog = null;
         try {
-            ethLog = web3j.ethGetFilterChanges(filterId).send();
+            eaiLog = web3j.eaiGetFilterChanges(filterId).send();
         } catch (IOException e) {
             throwException(e);
         }
-        if (ethLog.hasError()) {
-            throwException(ethLog.getError());
+        if (eaiLog.hasError()) {
+            throwException(eaiLog.getError());
         } else {
-            process(ethLog.getLogs());
+            process(eaiLog.getLogs());
         }
     }
 
-    abstract EthFilter sendRequest() throws IOException;
+    abstract EaiFilter sendRequest() throws IOException;
 
-    abstract void process(List<EthLog.LogResult> logResults);
+    abstract void process(List<EaiLog.LogResult> logResults);
 
     public void cancel() {
         schedule.cancel(false);
 
         try {
-            EthUninstallFilter ethUninstallFilter = web3j.ethUninstallFilter(filterId).send();
-            if (ethUninstallFilter.hasError()) {
-                throwException(ethUninstallFilter.getError());
+            EaiUninstallFilter eaiUninstallFilter = web3j.eaiUninstallFilter(filterId).send();
+            if (eaiUninstallFilter.hasError()) {
+                throwException(eaiUninstallFilter.getError());
             }
 
-            if (!ethUninstallFilter.isUninstalled()) {
+            if (!eaiUninstallFilter.isUninstalled()) {
                 throw new FilterException("Filter with id '" + filterId + "' failed to uninstall");
             }
         } catch (IOException e) {
@@ -140,12 +140,12 @@ public abstract class Filter<T> {
     /**
      * Retrieves historic filters for the filter with the given id.
      * Getting historic logs is not supported by all filters.
-     * If not the method should return an empty EthLog object
+     * If not the method should return an empty EaiLog object
      *
      * @param filterId Id of the filter for which the historic log should be retrieved
      * @return Historic logs, or an empty optional if the filter cannot retrieve historic logs
      */
-    protected abstract Optional<Request<?, EthLog>> getFilterLogs(BigInteger filterId);
+    protected abstract Optional<Request<?, EaiLog>> getFilterLogs(BigInteger filterId);
 
     void throwException(Response.Error error) {
         throw new FilterException("Invalid request: "

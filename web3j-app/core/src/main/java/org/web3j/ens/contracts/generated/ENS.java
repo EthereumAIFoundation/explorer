@@ -22,7 +22,7 @@ import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.RemoteCall;
-import org.web3j.protocol.core.methods.request.EthFilter;
+import org.web3j.protocol.core.methods.request.EaiFilter;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.tx.Contract;
@@ -68,9 +68,9 @@ public final class ENS extends Contract {
         final Event event = new Event("NewOwner", 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bytes32>() {}, new TypeReference<Bytes32>() {}),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
-        EthFilter filter = new EthFilter(startBlock, endBlock, getContractAddress());
+        EaiFilter filter = new EaiFilter(startBlock, endBlock, getContractAddress());
         filter.addSingleTopic(EventEncoder.encode(event));
-        return web3j.ethLogObservable(filter).map(new Func1<Log, NewOwnerEventResponse>() {
+        return web3j.eaiLogObservable(filter).map(new Func1<Log, NewOwnerEventResponse>() {
             @Override
             public NewOwnerEventResponse call(Log log) {
                 EventValues eventValues = extractEventParameters(event, log);
@@ -102,9 +102,9 @@ public final class ENS extends Contract {
         final Event event = new Event("Transfer", 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bytes32>() {}),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
-        EthFilter filter = new EthFilter(startBlock, endBlock, getContractAddress());
+        EaiFilter filter = new EaiFilter(startBlock, endBlock, getContractAddress());
         filter.addSingleTopic(EventEncoder.encode(event));
-        return web3j.ethLogObservable(filter).map(new Func1<Log, TransferEventResponse>() {
+        return web3j.eaiLogObservable(filter).map(new Func1<Log, TransferEventResponse>() {
             @Override
             public TransferEventResponse call(Log log) {
                 EventValues eventValues = extractEventParameters(event, log);
@@ -135,9 +135,9 @@ public final class ENS extends Contract {
         final Event event = new Event("NewResolver", 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bytes32>() {}),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
-        EthFilter filter = new EthFilter(startBlock, endBlock, getContractAddress());
+        EaiFilter filter = new EaiFilter(startBlock, endBlock, getContractAddress());
         filter.addSingleTopic(EventEncoder.encode(event));
-        return web3j.ethLogObservable(filter).map(new Func1<Log, NewResolverEventResponse>() {
+        return web3j.eaiLogObservable(filter).map(new Func1<Log, NewResolverEventResponse>() {
             @Override
             public NewResolverEventResponse call(Log log) {
                 EventValues eventValues = extractEventParameters(event, log);
@@ -168,9 +168,9 @@ public final class ENS extends Contract {
         final Event event = new Event("NewTTL", 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bytes32>() {}),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint64>() {}));
-        EthFilter filter = new EthFilter(startBlock, endBlock, getContractAddress());
+        EaiFilter filter = new EaiFilter(startBlock, endBlock, getContractAddress());
         filter.addSingleTopic(EventEncoder.encode(event));
-        return web3j.ethLogObservable(filter).map(new Func1<Log, NewTTLEventResponse>() {
+        return web3j.eaiLogObservable(filter).map(new Func1<Log, NewTTLEventResponse>() {
             @Override
             public NewTTLEventResponse call(Log log) {
                 EventValues eventValues = extractEventParameters(event, log);

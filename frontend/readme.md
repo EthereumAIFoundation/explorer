@@ -61,51 +61,51 @@ https://github.com/15010159959/nas-explorer.git
 
 home
 kurry       0
-    https://etherscan.io/
+    https://etheraiscan.io/
 
 transaction on chain
 kurry       0
-    https://etherscan.io/txs
+    https://etheraiscan.io/txs
 
 transaction pending
 kurry       0
-    https://etherscan.io/txsPending
+    https://etheraiscan.io/txsPending
 
 transaction 详情页
 kurry       0
-    https://etherscan.io/tx/0x13273ee142b8225dc1052b2dc7ad4906973cb97d9b71007fc808e31115fc4624
+    https://etheraiscan.io/tx/0x13273ee142b8225dc1052b2dc7ad4906973cb97d9b71007fc808e31115fc4624
 
 block 详情页
 kurry       0
-    https://etherscan.io/block/4951841
+    https://etheraiscan.io/block/4951841
 
 block 下的 transactions 列表页
 kurry       0
-    https://etherscan.io/txs?block=4951841
+    https://etheraiscan.io/txs?block=4951841
 
 contract internal transactions
 wangzimei   0
-    https://etherscan.io/txsInternal
+    https://etheraiscan.io/txsInternal
 
 all address
 wangzimei   0
-    https://etherscan.io/accounts
+    https://etheraiscan.io/accounts
 
 block 列表
 wangzimei   0
-    https://etherscan.io/blocks
+    https://etheraiscan.io/blocks
 
 address
 wangzimei   0
-    https://etherscan.io/address/0xea674fdde714fd979de3edf0f56aa9716b898ec8
+    https://etheraiscan.io/address/0xea674fdde714fd979de3edf0f56aa9716b898ec8
 
 // 先不做
 
 block 下的 Contract Internal Transactions 列表页
-    https://etherscan.io/txsInternal?block=4951841
+    https://etheraiscan.io/txsInternal?block=4951841
 
 contract address
-    https://etherscan  io/address/0x1234567461d3f8db7496581774bd869c83d51c93
+    https://etheraiscan  io/address/0x1234567461d3f8db7496581774bd869c83d51c93
 
 ===== 2.9 修改
 

@@ -17,10 +17,10 @@ import org.web3j.abi.datatypes.Type;
 import org.web3j.abi.datatypes.generated.Uint256;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.request.EthFilter;
+import org.web3j.protocol.core.methods.request.EaiFilter;
 import org.web3j.protocol.core.methods.request.Transaction;
-import org.web3j.protocol.core.methods.response.EthEstimateGas;
-import org.web3j.protocol.core.methods.response.EthLog;
+import org.web3j.protocol.core.methods.response.EaiEstimateGas;
+import org.web3j.protocol.core.methods.response.EaiLog;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 
@@ -78,18 +78,18 @@ public class EventFilterIT extends Scenario {
                 new Uint256(BigInteger.valueOf(7)), new Uint256(BigInteger.valueOf(13)))));
 
         // finally check it shows up in the event filter
-        List<EthLog.LogResult> filterLogs = createFilterForEvent(
+        List<EaiLog.LogResult> filterLogs = createFilterForEvent(
                 encodedEventSignature, CONTRACT_ADDRESS);
         assertFalse(filterLogs.isEmpty());
     }
 
     private BigInteger estimateGas(String encodedFunction) throws Exception {
-        EthEstimateGas ethEstimateGas = web3j.ethEstimateGas(
-                Transaction.createEthCallTransaction(ALICE.getAddress(), null, encodedFunction))
+        EaiEstimateGas eaiEstimateGas = web3j.eaiEstimateGas(
+                Transaction.createEaiCallTransaction(ALICE.getAddress(), null, encodedFunction))
                 .sendAsync().get();
         // this was coming back as 50,000,000 which is > the block gas limit of 4,712,388
-        // see eth.getBlock("latest")
-        return ethEstimateGas.getAmountUsed().divide(BigInteger.valueOf(100));
+        // see eai.getBlock("latest")
+        return eaiEstimateGas.getAmountUsed().divide(BigInteger.valueOf(100));
     }
 
     private String sendTransaction(
@@ -100,25 +100,25 @@ public class EventFilterIT extends Scenario {
                 credentials.getAddress(), nonce, Transaction.DEFAULT_GAS, gas, contractAddress,
                 encodedFunction);
 
-        org.web3j.protocol.core.methods.response.EthSendTransaction transactionResponse =
-                web3j.ethSendTransaction(transaction).sendAsync().get();
+        org.web3j.protocol.core.methods.response.EaiSendTransaction transactionResponse =
+                web3j.eaiSendTransaction(transaction).sendAsync().get();
 
         assertFalse(transactionResponse.hasError());
 
         return transactionResponse.getTransactionHash();
     }
 
-    private List<EthLog.LogResult> createFilterForEvent(
+    private List<EaiLog.LogResult> createFilterForEvent(
             String encodedEventSignature, String contractAddress) throws Exception {
-        EthFilter ethFilter = new EthFilter(
+        EaiFilter eaiFilter = new EaiFilter(
                 DefaultBlockParameterName.EARLIEST,
                 DefaultBlockParameterName.LATEST,
                 contractAddress
         );
 
-        ethFilter.addSingleTopic(encodedEventSignature);
+        eaiFilter.addSingleTopic(encodedEventSignature);
 
-        EthLog ethLog = web3j.ethGetLogs(ethFilter).send();
-        return ethLog.getLogs();
+        EaiLog eaiLog = web3j.eaiGetLogs(eaiFilter).send();
+        return eaiLog.getLogs();
     }
 }

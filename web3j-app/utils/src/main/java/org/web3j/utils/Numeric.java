@@ -10,7 +10,7 @@ import org.web3j.exceptions.MessageEncodingException;
 /**
  * <p>Message codec functions.</p>
  *
- * <p>Implementation as per https://github.com/ethereum/wiki/wiki/JSON-RPC#hex-value-encoding</p>
+ * <p>Implementation as per https://github.com/ethereumai/wiki/wiki/JSON-RPC#hex-value-encoding</p>
  */
 public final class Numeric {
 
@@ -53,7 +53,7 @@ public final class Numeric {
         }
 
         // If TestRpc resolves the following issue, we can reinstate this code
-        // https://github.com/ethereumjs/testrpc/issues/220
+        // https://github.com/ethereumaijs/testrpc/issues/220
         // if (value.length() > 3 && value.charAt(2) == '0') {
         //    return false;
         // }

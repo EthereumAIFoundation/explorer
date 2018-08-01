@@ -10,33 +10,33 @@ Yes, refer to the web3j sample project outlined in the :doc:`quickstart`.
 I'm submitting a transaction, but it's not being mined
 ------------------------------------------------------
 After creating and sending a transaction, you receive a transaction hash, however calling
-`eth_getTransactionReceipt <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionreceipt>`_
+`eai_getTransactionReceipt <https://github.com/ethereumai/wiki/wiki/JSON-RPC#eai_gettransactionreceipt>`_
 always returns a blank value, indicating the transaction has not been mined::
 
    String transactionHash = sendTransaction(...);
 
    // you loop through the following expecting to eventually get a receipt once the transaction
    // is mined
-   EthGetTransactionReceipt.TransactionReceipt transactionReceipt =
-           web3j.ethGetTransactionReceipt(transactionHash).sendAsync().get();
+   EaiGetTransactionReceipt.TransactionReceipt transactionReceipt =
+           web3j.eaiGetTransactionReceipt(transactionHash).sendAsync().get();
 
    if (!transactionReceipt.isPresent()) {
        // try again, ad infinitum
    }
 
 However, you never receive a transaction receipt. Unfortunately there may not be a an error
-in your Ethereum client indicating any issues with the transaction::
+in your EthereumAI client indicating any issues with the transaction::
 
-   I1025 18:13:32.817691 eth/api.go:1185] Tx(0xeaac9aab7f9aeab189acd8714c5a60c7424f86820884b815c4448cfcd4d9fc79) to: 0x9c98e381edc5fe1ac514935f3cc3edaa764cf004
+   I1025 18:13:32.817691 eai/api.go:1185] Tx(0xeaac9aab7f9aeab189acd8714c5a60c7424f86820884b815c4448cfcd4d9fc79) to: 0x9c98e381edc5fe1ac514935f3cc3edaa764cf004
 
-The easiest way to see if the submission is waiting to mined is to refer to Etherscan
-and search for the address the transaction was sent using https://testnet.etherscan.io/address/0x...
-If the submission has been successful it should be visible in Etherscan within seconds of you
+The easiest way to see if the submission is waiting to mined is to refer to EtherAIscan
+and search for the address the transaction was sent using https://testnet.etheraiscan.io/address/0x...
+If the submission has been successful it should be visible in EtherAIscan within seconds of you
 performing the transaction submission. The wait is for the mining to take place.
 
 .. image:: /images/pending_transaction.png
 
-If there is no sign of it then the transaction has vanished into the ether (sorry). The likely
+If there is no sign of it then the transaction has vanished into the etherai (sorry). The likely
 cause of this is likely to be to do with the transaction's nonce either not being set, or
 being too low. Please refer to the section :ref:`nonce` for more information.
 
@@ -58,10 +58,10 @@ the Logback dependencies are configured as *compile* dependencies, and that the 
 is named and located in *src/main/resources/logback.xml*.
 
 
-I want to obtain some Ether on Testnet, but don't want to have to mine it myself
+I want to obtain some EtherAI on Testnet, but don't want to have to mine it myself
 --------------------------------------------------------------------------------
 
-Please refer to the :ref:`ethereum-testnets` for how to obtain some Ether.
+Please refer to the :ref:`ethereumai-testnets` for how to obtain some EtherAI.
 
 
 How do I obtain the return value from a smart contract method invoked by a transaction?
@@ -76,7 +76,7 @@ be marked as
 functions. :ref:`smart-contract-wrappers` created by web3j handle these differences for you.
 
 The following StackExchange
-`post <http://ethereum.stackexchange.com/questions/765/what-is-the-difference-between-a-transaction-and-a-call>`__
+`post <http://ethereumai.stackexchange.com/questions/765/what-is-the-difference-between-a-transaction-and-a-call>`__
 is useful for background.
 
 
@@ -92,16 +92,16 @@ of the transaction. This is demonstrated below::
    byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, ALICE);
    String hexValue = Numeric.toHexString(signedMessage);
 
-   EthSendTransaction ethSendTransaction =
-           web3j.ethSendRawTransaction(hexValue).send();
-   String transactionHash = ethSendTransaction.getTransactionHash();
+   EaiSendTransaction eaiSendTransaction =
+           web3j.eaiSendRawTransaction(hexValue).send();
+   String transactionHash = eaiSendTransaction.getTransactionHash();
    ...
 
 *Note*: Please ensure you increase the gas limit on the transaction to allow for the storage of
 text.
 
 The following StackExchange
-`post <http://ethereum.stackexchange.com/questions/2466/how-do-i-send-an-arbitary-message-to-an-ethereum-address>`__
+`post <http://ethereumai.stackexchange.com/questions/2466/how-do-i-send-an-arbitary-message-to-an-ethereumai-address>`__
 is useful for background.
 
 
@@ -143,10 +143,10 @@ in the :ref:`ENS resolver <ens-implementation>`.
 Do you have a project donation address?
 ---------------------------------------
 
-Absolutely, you can contribute Bitcoin or Ether to help fund the development of web3j.
+Absolutely, you can contribute Bitcoin or EtherAI to help fund the development of web3j.
 
 +----------+--------------------------------------------+
-| Ethereum | 0x2dfBf35bb7c3c0A466A6C48BEBf3eF7576d3C420 |
+| EthereumAI | 0x2dfBf35bb7c3c0A466A6C48BEBf3eF7576d3C420 |
 +----------+--------------------------------------------+
 | Bitcoin  | 1DfUeRWUy4VjekPmmZUNqCjcJBMwsyp61G         |
 +----------+--------------------------------------------+
