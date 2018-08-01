@@ -8,7 +8,7 @@ import java.math.BigInteger;
 public class Constant {
     private Constant() {}
 
-    public static String IpcAddress = "/root/.ethereumaiai/geai.ipc";
+    public static String IpcAddress = "/root/.ethereumai/geai.ipc";
 
     public static String CapAddress = "https://api.coinmarketcap.com/v1/ticker/ethereumai/";
 

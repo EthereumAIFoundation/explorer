@@ -38,7 +38,7 @@ module.exports = {
         }
     },
     getTransactionByContract(t, netname, done, fail) {
-        var host =  getEthereumAIaiNetHost(netname)
+        var host =  getEthereumAINetHost(netname)
         ajax('POST ' + host + '/user/getTransactionByContract', t, done, fail)
     },
 

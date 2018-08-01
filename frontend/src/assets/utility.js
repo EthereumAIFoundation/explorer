@@ -14,7 +14,7 @@ module.exports = {
     easyNumber:easyNumber,
     ua: ua,
     yyyymmdd: yyyymmdd,
-    getEthereumAIaiNetHost: getEthereumAIaiNetHost
+    getEthereumAINetHost: getEthereumAINetHost
 };
 
 ////////////////////////////////////////////////////////////
@@ -218,15 +218,15 @@ function yyyymmdd(dateNow) {
     return 10000 * d.getFullYear() + 100 * d.getMonth() + 100 + d.getDate();
 }
 
-function getEthereumAIaiNetHost(net){
-    var mainnet = 'https://mainnet.ethereumaiai.io/v1'
+function getEthereumAINetHost(net){
+    var mainnet = 'https://mainnet.ethereumai.io/v1'
     
     if(!net){
         return mainnet
     }
 
     if (net.toLowerCase() == 'testnet') {
-        return 'https://testnet.ethereumaiai.io/v1'
+        return 'https://testnet.ethereumai.io/v1'
     }
 
     return mainnet
