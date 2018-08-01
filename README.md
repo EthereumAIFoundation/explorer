@@ -1,7 +1,7 @@
-# etheraiscan-explorer
-Yet another implementation of etheraiscan.io
+# eaiscan-explorer
+Yet another implementation of eaiscan.io
 
-A preview is here ==> [http://178.128.3.82/#/](http://178.128.3.82/#/)
+
 
 ## web3j-app
 It is a java project using spring boot and web3j. Jdk8, Gradle and Mysql should be pre-installed.
