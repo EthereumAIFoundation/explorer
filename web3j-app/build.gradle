@@ -49,6 +49,7 @@ allprojects {
 
     apply plugin: 'java'
     apply plugin: 'jacoco'
+//    apply plugin: 'checkstyle'
 
     repositories {
         mavenCentral()
@@ -76,9 +77,14 @@ allprojects {
         }
     }
 
-    tasks.withType(Test) {
+   tasks.withType(Test) {
         reports.html.destination = file("${reporting.baseDir}/${name}")
     }
+
+//    checkstyle {
+//        toolVersion = "7.7"
+//        configFile = file("${rootProject.projectDir}/config/checkstyle/checkstyle.xml")
+//    }
 }
 
 subprojects {
